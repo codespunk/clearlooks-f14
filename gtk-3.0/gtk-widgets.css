@@ -1131,11 +1131,11 @@ notebook.frame>header {
 	margin: -1px;
 }
 
-notebook>header {
+notebook > header {
 	background-color: @theme_bg_color;
 }
 
-notebook tab:nth-child(1) {
+notebook > header tab:nth-child(1) {
 	border-left-width: 2px;
 }
 
