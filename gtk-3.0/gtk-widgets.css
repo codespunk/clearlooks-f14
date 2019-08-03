@@ -163,17 +163,26 @@ rubberband {
 }
 
 statusbar {
-	margin: -7px -10px -6px -10px;
+	margin: 0px;
+	padding: 2px 0px 0px 0px;
 }
 
 statusbar label,
 statusbar frame {
 	color: @theme_fg_color;
 	border-width: 0px;
+	margin-top: -1px;
+	margin-bottom: -1px;
 }
 
-statusbar frame {
-	border-width: 0;
+statusbar frame > border
+ {
+	margin-top: 2px;
+	border: none;
+}
+
+statusbar frame > button.flat {
+	padding: 0px;
 }
 
 .dnd {
