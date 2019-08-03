@@ -1127,6 +1127,18 @@ notebook header tabs arrow:backdrop:disabled {
     color: #c7c7c7;
 }
 
+notebook.frame>header {
+	margin: -1px;
+}
+
+notebook>header {
+	background-color: @theme_bg_color;
+}
+
+notebook tab:nth-child(1) {
+	border-left-width: 2px;
+}
+
 /**************
  * ComboBoxes *
  **************/
