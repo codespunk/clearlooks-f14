@@ -496,12 +496,8 @@ frame > label {
 	padding: 0px 4px 0px 4px;
 }
 
-scrolledwindow frame {
-	border-style: solid;
-	border-color: @border_color;
-	border-width: 1px;
-	border-radius: 2px;
-	padding: 0;
+scrolledwindow.frame {
+	border-radius: 0px;
 }
 
 scrolledwindow viewport {
@@ -2387,7 +2383,6 @@ expander row:selected:focus {
 }
 
 expander scrolledwindow.frame {
-	border-radius: 0px;
 	border-width: 1px 0px;
 }
 
@@ -2720,7 +2715,6 @@ dialog scrolledwindow {
 	border-color: @border_color;
 	border-style: solid;
 	border-width: 1px;
-	border-radius: 2px;
 }
 
 /* credits in GtkAbout windows */
@@ -2730,7 +2724,6 @@ dialog .dialog-vbox scrolledwindow.frame > viewport.view.frame {
 
 dialog scrolledwindow.frame viewport .vertical expander .vertical {
 	background-color: @theme_base_color;
-	border-radius: 3px;
 	border-color: @border_color;
 	border-style: solid;
 	border-width: 1px;
