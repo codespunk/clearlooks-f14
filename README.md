@@ -12,4 +12,4 @@ Note that I am only testing this on Fedora and tracking the latest GTK3 release.
 
 ---
 
-Note that it can be difficult to identify what exactly has changed from my commits without applying the theme and comparing it with an older release. To aid in pushing changes upstream, to highlight bug fixes, and to help backport these changes to older GTK3 style sheets, I am tracking these changes as I make them in the [issues](https://github.com/codespunk/clearlooks-f14/issues) section of this project. View the **closed** tickets to see pictures of each individual change that been made.
+Note that it can be difficult to identify what exactly has changed from my commits without applying the theme and comparing it with an older release. To aid in pushing changes upstream, to highlight bug fixes, and to help backport commits to older GTK3 style sheets, I am tracking these changes as I make them in the [issues](https://github.com/codespunk/clearlooks-f14/issues) section of this project. View the **closed** tickets to see pictures of each individual change that been made.
