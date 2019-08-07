@@ -8,7 +8,7 @@ Clearlooks-Phenix has been a good holdover for me but changes in GTK3 have slowl
 
 So, here it is. Clearlooks-F14. I've only just started working on it but I've already fixed a lot of bugs which have cropped up between the last commit to Clearlooks-Phenix and the latest theme-breaking changes provided by the GNOME Project. Please feel free to try it out and report any issues you find.
 
-Note that I am only testing this on Fedora and tracking the latest GTK3 release. So there will most likely be problems and inconsistencies for anyone using it with older versions of GNOME 3-- I simply haven't done any testing with any other version.
+Note that I am only testing this on Fedora and tracking the latest GTK3 release. So there will most likely be problems and inconsistencies for anyone using it with older versions of GNOME 3-- I simply haven't done any testing with other versions.
 
 ---
 
