@@ -8,10 +8,10 @@
 
 switch slider {
 	background-image: linear-gradient(to bottom,
-	                      alpha (@switch_slider_gradient_a, 0.5),
-	                      alpha (@switch_slider_gradient_b, 0.5) 50%,
-	                      alpha (@switch_slider_gradient_c, 0.5) 50%,
-	                      alpha (@switch_slider_gradient_d, 0.5)),
+	                      alpha (@button_gradient_a, 1.0),
+	                      alpha (@button_gradient_b, 0.5) 50%,
+	                      alpha (@button_gradient_c, 0.5) 50%,
+	                      alpha (@button_gradient_d, 1.0)),
 	                  -gtk-scaled(url("img/slider-horz-grip.png"),
 	                      url("img/slider-horz-grip@2.png"));
 	background-repeat: no-repeat;
@@ -20,10 +20,8 @@ switch slider {
 
 switch:disabled slider {
 	background-image: linear-gradient(to bottom,
-	                      alpha (@switch_slider_insensitive_gradient_a, 0.8),
-	                      alpha (@switch_slider_insensitive_gradient_b, 0.8) 50%,
-	                      alpha (@switch_slider_insensitive_gradient_c, 0.8) 50%,
-	                      alpha (@switch_slider_insensitive_gradient_d, 0.8)),
+	                      alpha (@switch_slider_insensitive_gradient_b, 0.8),
+	                      alpha (@trough_gradient_a, 0.8)),
 	                  -gtk-scaled(url("img/slider-horz-grip.png"),
 	                      url("img/slider-horz-grip@2.png"));
 }
