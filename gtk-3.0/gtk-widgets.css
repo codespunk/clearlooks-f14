@@ -581,7 +581,6 @@ toolbar button,
 toolbar.primary-toolbar button,
 toolbar.horizontal button:hover,
 toolbar.horizontal button:active {
-	padding: 4px 6px;
 }
 
 .path-bar button,
