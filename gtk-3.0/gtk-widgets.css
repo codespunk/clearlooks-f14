@@ -496,6 +496,10 @@ frame > label {
 	padding: 0px 4px 0px 4px;
 }
 
+/*******************
+ * ScrolledWindows *
+ *******************/
+
 scrolledwindow.frame {
 	border-radius: 0px;
 }
@@ -508,6 +512,42 @@ scrolledwindow viewport {
  * packed into a GtkScrolledWindow */
 scrolledwindow viewport.frame {
 	border-style: none;
+}
+
+scrolledwindow junction {
+	border: none;
+	background: transparent;
+}
+
+scrolledwindow scrollbar.vertical {
+	background-color: @theme_bg_color;
+	border-left-width: 1px;
+	margin: -1px;
+	margin-left: -3px;
+	margin-bottom: -20px;
+	padding-bottom: 19px;
+}
+
+scrolledwindow scrollbar.vertical trough {
+margin-left: 2px;
+}
+
+scrolledwindow scrollbar.vertical button {
+	margin-left: 2px;
+}
+
+scrolledwindow scrollbar.horizontal {
+	background-color: @theme_bg_color;
+	margin: -1px;
+	padding-top: 2px;
+	margin-top: -3px;
+}
+
+scrolledwindow scrollbar.horizontal trough {
+border:solid;
+border-color:@border_color;
+border-top-width:1px;
+border-bottom-width:1px;
 }
 
 /***********
@@ -1388,11 +1428,6 @@ scrollbar.horizontal {
     min-height: 14px;
 }
 
-scrolledwindow junction {
-	background-image: none;
-	background-color: @scrollbars_junction_bg_color;
-}
-
 scrollbar trough {
 	border-color: @scrollbar_trough_border_color;
 	border-radius: 0;
@@ -2226,6 +2261,13 @@ treeview header button:last-child:active:focus {
 	border-right: none;
 }
 
+treeview ~ scrollbar.vertical {
+   margin-top: -25px;
+   padding-top: 25px;
+   margin-bottom: -33px;
+   padding-bottom: 32px;
+}
+
 row,
 row:focus {
 	min-height: 22px;
@@ -2383,7 +2425,7 @@ expander row:selected:focus {
 }
 
 expander scrolledwindow.frame {
-	border-width: 1px 0px;
+   border-width: 1px;
 }
 
 expander toolbar.inline-toolbar {
