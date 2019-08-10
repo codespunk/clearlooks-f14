@@ -676,7 +676,7 @@ toolbar.primary-toolbar button:focus:hover {
 button:visited, *:link:hover, button:hover:link,
 button:hover:visited, *:link:active, button:active:link,
 button:active:visited {
-  color: #787878;
+  color: #3168a0;
 }
 
 *:link:visited,
