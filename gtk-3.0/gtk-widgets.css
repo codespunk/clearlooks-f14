@@ -1252,26 +1252,30 @@ border-left-width: 1px;
 
 notebook header.top tabs arrow.up,
 notebook header.bottom tabs arrow.up {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-    color: @theme_fg_color;
+	-gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+	color: @theme_fg_color;
+	background: transparent;
 }
 
 notebook header.top tabs arrow.down,
 notebook header.bottom tabs arrow.down {
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
-    color: @theme_fg_color;
+	-gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+	color: @theme_fg_color;
+	background: transparent;
 }
 
 notebook header.left tabs arrow.up,
 notebook header.right tabs arrow.up {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-    color: @theme_fg_color;
+	-gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+	color: @theme_fg_color;
+	background: transparent;
 }
 
 notebook header.left tabs arrow.down,
 notebook header.right tabs arrow.down {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-    color: @theme_fg_color;
+	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+	color: @theme_fg_color;
+	background: transparent;
 }
 
 notebook header.right tab {
