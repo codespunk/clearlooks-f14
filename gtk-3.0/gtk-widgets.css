@@ -676,14 +676,17 @@ toolbar.primary-toolbar button:focus:hover {
 button:visited, *:link:hover, button:hover:link,
 button:hover:visited, *:link:active, button:active:link,
 button:active:visited {
-  color: #3168a0;
+  color: @notebook_active_tab_strip_gradient_a;
+  /*color: #3168a0;*/ /*subdued*/
+  /*color: #2196f3;*/ /*brighter*/
 }
 
 *:link:visited,
 button:visited, *:link:visited:hover,
 button:visited:hover, *:link:visited:active,
 button:visited:active {
-  color: #E040FB;
+  color: #d556eb; /*subdued*/
+  /*color: #E040FB;*/ /*brighter*/
 }
 
 infobar.info *:link, infobar.info button:link,
