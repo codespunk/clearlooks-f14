@@ -307,7 +307,6 @@ GtkColorEditor colorswatch.color-dark:hover {
 progressbar {
 	border-radius: 4px;
 	padding: 0 0 1px 0;
-	color: @switch_trough_active_color;
 }
 
 progressbar.horizontal trough,
@@ -393,10 +392,6 @@ row:selected:focus progressbar trough {
 /************
  * GtkScale *
  ************/
-
-scale {
-	color: @switch_trough_active_color;
-}
 
 scale.vertical {
     min-width: 10px;
