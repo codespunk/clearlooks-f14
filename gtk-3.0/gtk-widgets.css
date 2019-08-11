@@ -685,7 +685,7 @@ button:active:visited {
 button:visited, *:link:visited:hover,
 button:visited:hover, *:link:visited:active,
 button:visited:active {
-  color: #d556eb; /*subdued*/
+  color: #da36f6;
   /*color: #E040FB;*/ /*brighter*/
 }
 
