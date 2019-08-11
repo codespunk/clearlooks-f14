@@ -307,6 +307,7 @@ GtkColorEditor colorswatch.color-dark:hover {
 progressbar {
 	border-radius: 4px;
 	padding: 0 0 1px 0;
+	color: @switch_trough_active_color;
 }
 
 progressbar.horizontal trough,
@@ -393,6 +394,10 @@ row:selected:focus progressbar trough {
  * GtkScale *
  ************/
 
+scale {
+	color: @switch_trough_active_color;
+}
+
 scale.vertical {
     min-width: 10px;
     padding: 3px 5px;
@@ -478,6 +483,69 @@ scale:focus {
 
 scale:focus trough {
 }
+
+/**********
+ * LevelBar *
+ **********/
+
+levelbar block {
+  min-width: 21px;
+  min-height: 2px; 
+  border-radius: 2px;}
+
+levelbar.vertical block {
+  min-width: 1px;
+  min-height: 21px; 
+  border-radius: 2px;}
+
+levelbar trough {
+  border-style: solid;
+  padding: 2px;
+  border-radius: 3px;
+  background-color: #cfd6e6; 
+  background-image: linear-gradient(to bottom,
+                    @trough_gradient_a,
+                    @trough_gradient_b 2px);}
+
+levelbar.horizontal.discrete block {
+  margin: 0 1px; }
+
+levelbar.horizontal.discrete block:first-child {
+  margin-left:0px;}
+
+levelbar.horizontal.discrete block:last-child {
+  margin-right:-2px;}
+
+levelbar.vertical.discrete block {
+  margin: 1px 0; }
+
+levelbar.vertical.discrete block:first-child {
+  margin-bottom:0px;}
+
+levelbar.vertical.discrete block:last-child {
+  margin-top:-2px;}
+
+levelbar block:not(.empty) {
+  border: 1px solid @progressbar_border_color;
+  background-color: @progressbar_border_color;}
+
+levelbar block.low,
+levelbar block.high,
+levelbar block.full {
+background-image: linear-gradient(to bottom,
+                      alpha (@progressbar_gradient_a, 1.7),
+                      alpha (@progressbar_gradient_b, 1.7) 50%,
+                      alpha (@progressbar_gradient_c, 1.7) 50%,
+                      alpha (@progressbar_gradient_d, 1.7)),
+                  repeating-linear-gradient(135deg,
+                      alpha (@progressbar_pattern_color, 1.0),
+                      alpha (@progressbar_pattern_color, 1.0) 12px,
+                      alpha (@progressbar_pattern_color, 1.5) 12px,
+                      alpha (@progressbar_pattern_color, 1.5) 24px);}
+
+levelbar block.empty {
+  background-color: rgba(59, 62, 69, 0.2);
+  border-color: rgba(59, 62, 69, 0.2); }
 
 /**********
  * Frames *
@@ -2111,90 +2179,77 @@ assistant .sidebar {
  *************/
  
 switch {
-border:solid;
-border-width:1.2px;
-border-radius:4px;
-border-color:#a1a1a1;
-box-shadow:   0.1px 0.1px 0 0 #728195;
-color: @switch_color;
-background-image: -gtk-gradient (linear,
-                  left top,
-                  left bottom,
-                  from (@scrollbar_button_active_gradient_d),
-                  color-stop (0.20, @scrollbar_button_active_gradient_c),
-                  color-stop (0.50, @scrollbar_button_active_gradient_b),
-                  to (@scrollbar_button_active_gradient_a));
-/*color:transparent;*/
-/*text-shadow:none;*/
-}
-
-scale progressbar,
-switch:checked {
-	color: @switch_trough_active_color;
+	border: solid;
+	border-width: 1.2px;
+	border-radius: 4px;
+	border-color: #a1a1a1;
+	box-shadow: 0.1px 0.1px 0 0 #728195;
+	color: @switch_color;
+	background-image: linear-gradient(to bottom,
+	          @trough_gradient_a,
+	          @trough_gradient_b 4px);
+	color: transparent;
+	text-shadow: none;
+	box-shadow: 0px 0.8px 0 0 white;
 }
 
 switch:checked,
 switch:backdrop:checked {
-	background-image: -gtk-gradient (linear,
-	                  left top, left bottom,
-	                  from (@switch_trough_active_gradient_a),
-	                  to (@switch_trough_active_gradient_b));
-}
-
-switch:disabled,
-switch:backdrop:disabled {
-	background-image: none;
-	background-color: @insensitive_bg_color;
-	color: mix(@insensitive_bg_color, @insensitive_fg_color, 0.5);
+   background-image: none;
 }
 
 switch slider {
-	background-color: @switch_slider_bg_color;
-	border-width: 1px;
-	border-radius: 4px;
-	border-style: solid;
-	border-color: @switch_slider_border_color;
-	margin:-1px;
-	padding:1px;
-	box-shadow: inset  -0.5px -0.5px 0 0 #728195;
-	background-color:white;
-	/*box-shadow: inset  0px -1px 0 0 #728195;*/
-	/*border-width:1.5px;*/
-	/*border-color:#a1a1a1;*/
-}
-
-switch:disabled slider {
-	border-color: @insensitive_border_color;
+   background-color: @switch_slider_bg_color;
+   border-width: 1px;
+   border-radius: 4px;
+   border-style: solid;
+   border-color: #a1a1a1;
+   margin: -1px;
+   padding: 1px;
+   /*box-shadow: inset  0px -1px 0 0 #728195;*/
+   padding: 0px;
+   box-shadow: none;
+   background-color: white;
+   border-width: 1.2px;
+   border-top-width: 1px;
 }
 
 switch:checked {
-border-color: @progressbar_border_color;
-background:#3168a0;
+   border-color: @progressbar_border_color;
+   background-image: linear-gradient(to bottom,
+             alpha (@trough_gradient_a, 0.6),
+             alpha (@trough_gradient_b, 0.6) 4px);
+   background-color: #297be5;
 }
 
 switch:checked slider {
-border-color: shade(@progressbar_border_color, 0.85);
+   border-color: @progressbar_border_color;
 }
 
 switch:disabled {
-border-color: @insensitive_border_color;
+   border-color: @insensitive_border_color;
+   box-shadow: 0px 0.8px 0 0 white;
+   background-image: linear-gradient(to bottom,
+             alpha (@trough_gradient_a, 0.6),
+             alpha (@trough_gradient_b, 0.6) 4px);
+   background-color: @insensitive_bg_color;
+	color: transparent;
+	text-shadow: none;
 }
 
 switch:disabled slider {
-border-color: @insensitive_border_color;
-background-color: @insensitive_bg_color;
-box-shadow: inset  -0.5px -0.5px 0 0 #898989;
-border-width:1.2px;
+   border-color: @insensitive_border_color;
+   background-color: @insensitive_bg_color;
+   box-shadow: none;
+   border-width: 1.2px;
+   border-top-width: 1px;
+   background-image: none;
 }
 
 switch:disabled:checked {
-border-color:#898989;
-background:#a1a1a1;
-}
-
-switch:disabled:checked slider {
-border-color:#898989;
-background:#a1a1a1;
+   background-image: linear-gradient(to bottom,
+             mix(@trough_gradient_a, #297be5, 0.20),
+             mix(@trough_gradient_b, #297be5, 0.20) 4px);
 }
 
 /**************************

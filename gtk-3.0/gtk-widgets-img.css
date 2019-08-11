@@ -18,13 +18,28 @@ switch slider {
 	background-position: center center;
 }
 
+/*switch:disabled:checked slider,
 switch:disabled slider {
 	background-image: linear-gradient(to bottom,
-	                      alpha (@switch_slider_insensitive_gradient_b, 0.8),
-	                      alpha (@trough_gradient_a, 0.8)),
+	                      alpha (#ededed, 0.5),
+	                      alpha (#f5f5f4, 1) 1px,
+	                      alpha (#f5f5f4, 0.5) 50%,
+	                      alpha (#e7e7e6, 0.5) 50%,
+	                      alpha (#e7e7e6, 0.5) 95%,
+	                      alpha (#ededed, 0.5));
+}
+
+switch:disabled:checked slider {
+	background-image: linear-gradient(to bottom,
+	                      alpha (#ededed, 0.5),
+	                      alpha (#f5f5f4, 1) 1px,
+	                      alpha (#f5f5f4, 0.5) 50%,
+	                      alpha (#e7e7e6, 0.5) 50%,
+	                      alpha (#e7e7e6, 0.5) 95%,
+	                      alpha (#ededed, 0.5)),
 	                  -gtk-scaled(url("img/slider-horz-grip.png"),
 	                      url("img/slider-horz-grip@2.png"));
-}
+}*/
 
 /***************
  * Resize grip *
