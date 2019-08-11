@@ -1081,7 +1081,7 @@ notebook header.top tab {
 	border-radius: 4px 4px 0px 0px;
 	margin-top: 3px;
 	margin-left: -1px;
-	box-shadow: 0.4px 0px 0 0 black;
+	box-shadow: 0.4px 0px 0 0 #a1a1a1;
 	background-image: linear-gradient(to bottom,
 	                  @notebook_tab_inner_border_color 1px,
 	                  @notebook_tab_gradient_a 2px,
