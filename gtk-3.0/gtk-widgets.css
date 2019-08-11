@@ -1310,8 +1310,37 @@ notebook header tabs arrow:backdrop:disabled {
     color: #c7c7c7;
 }
 
-notebook.frame > header {
-	margin: -1px;
+notebook.frame > header.top {
+margin: 0px;
+margin-top: -1px;
+margin-left: -1px;
+margin-right: -1px;
+}
+
+
+notebook.frame > header.bottom {
+margin: 0px;
+margin-bottom: -1px;
+margin-left: -1px;
+margin-right: -1px;
+}
+
+notebook.frame > header.right {
+margin: 0px;
+margin-top: -1px;
+margin-right: -1px;
+margin-bottom: -1px;
+}
+
+notebook.frame > header.left {
+margin: 0px;
+margin-top: -1px;
+margin-left: -1px;
+margin-bottom: -1px;
+}
+
+notebook.frame > * {
+margin-top:-1px;
 }
 
 notebook > header {
