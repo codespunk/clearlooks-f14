@@ -1019,6 +1019,7 @@ notebook header.top tab {
 	border-radius: 4px 4px 0px 0px;
 	margin-top: 3px;
 	margin-left: -1px;
+	box-shadow: 0.4px 0px 0 0 black;
 	background-image: linear-gradient(to bottom,
 	                  @notebook_tab_inner_border_color 1px,
 	                  @notebook_tab_gradient_a 2px,
@@ -1033,7 +1034,8 @@ notebook header.right tab {
 	border-radius: 0px 4px 4px 0px;
 	margin-right: 3px;
 	margin-top: -1px;
-	background-image: linear-gradient(to left,
+	box-shadow: 0.5px 0.3px 0 0 black;
+	background-image: linear-gradient(to bottom,
 	                  @notebook_tab_inner_border_color 1px,
 	                  @notebook_tab_gradient_a 2px,
 	                  @notebook_tab_gradient_b 50%,
@@ -1047,7 +1049,8 @@ notebook header.bottom tab {
 	border-radius: 0px 0px 4px 4px;
 	margin-bottom: 3px;
 	margin-left: -1px;
-	background-image: linear-gradient(to top,
+	box-shadow: 0.4px 0.6px 0 0 black;
+	background-image: linear-gradient(to bottom,
 	                  @notebook_tab_inner_border_color 1px,
 	                  @notebook_tab_gradient_a 2px,
 	                  @notebook_tab_gradient_b 50%,
@@ -1061,7 +1064,8 @@ notebook header.left tab {
 	border-radius: 4px 0px 0px 4px;
 	margin-left: 3px;
 	margin-top: -1px;
-	background-image: linear-gradient(to right,
+	box-shadow: 0px 0.3px 0 0 black;
+	background-image: linear-gradient(to bottom,
 	                  @notebook_tab_inner_border_color 1px,
 	                  @notebook_tab_gradient_a 2px,
 	                  @notebook_tab_gradient_b 50%,
@@ -1073,6 +1077,7 @@ notebook header.top tab:checked {
 	padding-top: 7px;
 	margin-top: 0px;
 	border-bottom: 0px;
+	box-shadow: none;
 	border-top-color: @notebook_active_tab_border;
 	background-image: linear-gradient(to bottom,
 	                  @notebook_active_tab_strip_gradient_a,
@@ -1086,6 +1091,7 @@ notebook header.right tab:checked {
 	padding-right: 7px;
 	margin-right: 0px;
 	border-left: 0px;
+	box-shadow: none;
 	border-right-color: @notebook_active_tab_border;
 	background-image: linear-gradient(to left,
 	                  @notebook_active_tab_strip_gradient_a,
@@ -1099,6 +1105,7 @@ notebook header.bottom tab:checked {
 	padding-bottom: 6px;
 	margin-bottom: 0px;
 	border-top: 0px;
+	box-shadow: none;
 	border-bottom-color: @notebook_active_tab_border;
 	background-image: linear-gradient(to top,
 	                  @notebook_active_tab_strip_gradient_a,
@@ -1112,6 +1119,7 @@ notebook header.left tab:checked {
 	padding-left: 8px;
 	margin-left: 0px;
 	border-right: 0px;
+	box-shadow: none;
 	border-left-color: @notebook_active_tab_border;
 	background-image: linear-gradient(to right,
 	                  @notebook_active_tab_strip_gradient_a,
