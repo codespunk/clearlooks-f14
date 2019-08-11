@@ -744,8 +744,7 @@ toolbar.primary-toolbar button:focus:hover {
 button:visited, *:link:hover, button:hover:link,
 button:hover:visited, *:link:active, button:active:link,
 button:active:visited {
-  color: @notebook_active_tab_strip_gradient_a;
-  /*color: #3168a0;*/ /*subdued*/
+  color: #3168a0; /*subdued*/
   /*color: #2196f3;*/ /*brighter*/
 }
 
