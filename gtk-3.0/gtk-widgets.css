@@ -2252,7 +2252,8 @@ switch slider {
    border-top-width: 1px;
 }
 
-switch:checked {
+switch:checked:not(:disabled),
+switch:backdrop:checked:not(:disabled) {
    border-color: @progressbar_border_color;
    background-image: linear-gradient(to bottom,
              alpha (@trough_gradient_a, 0.6),
@@ -2284,6 +2285,12 @@ switch:disabled slider {
    background-image: none;
 }
 
+switch:checked,
+switch:disabled:checked slider {
+   border-color: mix(@insensitive_border_color, @progressbar_border_color, 0.5);
+}
+
+switch:backdrop:disabled:checked,
 switch:disabled:checked {
    background-image: linear-gradient(to bottom,
              mix(@trough_gradient_a, #297be5, 0.20),
