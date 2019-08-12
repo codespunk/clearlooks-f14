@@ -90,6 +90,15 @@ tooltip *,
  * Miscellaneous *
  *****************/
 
+separator {
+background:alpha(@insensitive_border_color, 0.5);
+}
+
+button separator,
+list separator {
+background:transparent;
+}
+
 @keyframes spin {
 	to {
 	    -gtk-icon-transform: rotate(1turn);
@@ -2495,25 +2504,19 @@ row:hover:focus,
  *********/
 
 paned.horizontal separator {
-	min-width: 7px;
-	background-size: 5px 5px;
-	margin: -1px 0 -1px 0;
+	min-height: 5px;
 	border-style: none;
-	border-width: 0 1px 0 1px;
+	padding-left:1px;
 	border-color: @border_color;
 	background-color: @theme_bg_color;
-	-gtk-icon-source: none;
 }
 
 paned.vertical > separator {
-	min-height: 7px;
-	background-size: 5px 5px;
+	min-height: 5px;
 	border-style: none;
-	margin: 0 -1px 0 -1px;
-	border-width: 1px 0 1px 0;
+	padding-top:1px;
 	border-color: @border_color;
 	background-color: @theme_bg_color;
-	-gtk-icon-source: none;
 }
 
 paned > separator:hover,

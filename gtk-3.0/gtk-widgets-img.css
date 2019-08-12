@@ -450,6 +450,7 @@ paned.horizontal > separator {
 	background-position: center center;
 	background-image: -gtk-scaled(url("img/pane-separator-grip-horz.png"),
 		url("img/pane-separator-grip-horz@2.png"));
+	-gtk-icon-source:none;
 }
 
 paned.vertical > separator {
@@ -457,6 +458,7 @@ paned.vertical > separator {
 	background-position: center center;
 	background-image: -gtk-scaled(url("img/pane-separator-grip-vert.png"),
 		url("img/pane-separator-grip-vert@2.png"));
+	-gtk-icon-source:none;
 }
 
 /***********
