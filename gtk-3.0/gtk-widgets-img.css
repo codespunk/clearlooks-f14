@@ -509,7 +509,7 @@ toolbar.primary-toolbar combobox button:disabled,
 /* primary toolbar - hover button borders */
 toolbar.primary-toolbar button:hover {
 	border-image: url("img/border.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -641,7 +641,7 @@ toolbar.inline-toolbar toolbutton button :only-child:focus,
 toolbar.inline-toolbar toolbutton button :only-child:focus:active,
 toolbar.inline-toolbar toolbutton button :only-child:disabled {
 	border-image: url("img/border-inline-button.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -655,7 +655,7 @@ entry:disabled,
 button:disabled,
 trough row {
 	border-image: url("img/border-insensitive.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -695,7 +695,7 @@ toolbar.primary-toolbar .raised button:focus,
 toolbar.primary-toolbar .raised button.default,
 toolbar.primary-toolbar combobox button:focus {
 	border-image: url("img/border-focused.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -704,7 +704,7 @@ toolbar.primary-toolbar combobox button:focus {
 /* focused primary toolbar button borders */
 toolbar.primary-toolbar button:focus {
 	border-image: url("img/border-focused-ptb.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -713,7 +713,7 @@ toolbar.primary-toolbar button:focus {
 /* focused switch trough borders */
 switch:active {
 	border-image: url("img/border-focused-switch.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
@@ -721,7 +721,7 @@ switch:active {
 
 .linked button:disabled:only-child {
 	border-image: url("img/border-insensitive.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-radius: 3px;
+	border-radius: 4px;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
 	border-color: transparent;
