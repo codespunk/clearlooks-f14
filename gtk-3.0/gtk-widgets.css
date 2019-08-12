@@ -1031,9 +1031,9 @@ toolbar.primary-toolbar button:focus:hover {
 }
 
 button separator {
-    border-left: solid 1px @theme_fg_color;
-    padding-left: 2px;
-    padding-right: 2px;
+	border-left: solid 1px #cccac7;
+	border-right: solid 1px white;
+	padding:0px;
 }
 
 /*****************
