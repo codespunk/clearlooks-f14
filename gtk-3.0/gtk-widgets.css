@@ -2266,7 +2266,7 @@ switch:checked slider {
 
 switch:disabled {
    border-color: @insensitive_border_color;
-   box-shadow: 0px 0.8px 0 0 white;
+   box-shadow: none;
    background-image: linear-gradient(to bottom,
              alpha (@trough_gradient_a, 0.6),
              alpha (@trough_gradient_b, 0.6) 4px);
