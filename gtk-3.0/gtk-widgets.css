@@ -28,6 +28,22 @@
 	-GtkWindow-resize-grip-height: 11;
 }
 
+/**********
+ * Frames *
+ **********/
+
+ frame > border,
+.frame {
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+	border: 1px solid @border_color;
+}
+
+frame > label {
+	padding: 0px 4px 0px 4px;
+}
+
 /***************
  * Base States *
  ***************/
@@ -551,23 +567,6 @@ levelbar block.empty {
   background-color: rgba(59, 62, 69, 0.2);
   border-color: rgba(59, 62, 69, 0.2); }
 
-/**********
- * Frames *
- **********/
-
- frame > border,
-.frame {
-	box-shadow: none;
-	margin: 0;
-	padding: 0;
-	border-radius: 0px;
-	border: 1px solid @border_color;
-}
-
-frame > label {
-	padding: 0px 4px 0px 4px;
-}
-
 /*******************
  * ScrolledWindows *
  *******************/
@@ -1043,7 +1042,29 @@ button separator {
  * tabs          *
  *****************/
 
+/* Inset whole tab group */
+/*
+notebook > header.top tabs,
+notebook > header.bottom tabs {
+margin-left:3px;
+}
+notebook > header tabs arrow.down {
+margin-left:-3px;
+}
+*/
 
+/* Shift unchecked tabs */
+/*
+notebook > header.top tab:not(:checked),
+notebook > header.bottom tab:not(:checked) {
+margin-left: 3px;
+}
+
+notebook > header.left tab:not(:checked),
+notebook > header.right tab:not(:checked) {
+margin-bottom: 3px;
+}
+*/
 
 notebook {
 	padding: 0;
@@ -1060,14 +1081,19 @@ notebook {
 }
 
 notebook tab {
-	padding: 3px;
+	padding-top:4px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: @menu_border_color;
 }
 
+notebook tab:checked {
+	border-color: @border_color;
+}
+
 notebook > header.top tab {
-	padding: 4px 6px 3px 6px;
+	padding: 3px;
+	padding-top:4px;
 	border-width: 1px;
 	border-radius: 4px 4px 0px 0px;
 	margin-top: 3px;
@@ -1082,7 +1108,8 @@ notebook > header.top tab {
 }
 
 notebook > header.right tab {
-	padding: 6px 6px 6px 6px;
+	padding: 6px;
+	padding: 5px 8px 6px 5px;
 	border-width: 1px;
 	border-radius: 0px 4px 4px 0px;
 	margin-right: 3px;
@@ -1112,7 +1139,7 @@ notebook > header.bottom tab {
 }
 
 notebook > header.left tab {
-	padding: 6px 6px 6px 6px;
+	padding: 5px 5px 6px 8px;
 	border-width: 1px;
 	border-radius: 4px 0px 0px 4px;
 	margin-left: 3px;
@@ -1127,7 +1154,7 @@ notebook > header.left tab {
 }
 
 notebook > header.top tab:checked {
-	padding-top: 7px;
+	padding-left:5px;
 	margin-top: 0px;
 	border-bottom: 0px;
 	box-shadow: none;
@@ -1141,7 +1168,6 @@ notebook > header.top tab:checked {
 }
 
 notebook > header.right tab:checked {
-	padding-right: 7px;
 	margin-right: 0px;
 	border-left: 0px;
 	box-shadow: none;
@@ -1169,7 +1195,6 @@ notebook > header.bottom tab:checked {
 }
 
 notebook > header.left tab:checked {
-	padding-left: 8px;
 	margin-left: 0px;
 	border-right: 0px;
 	box-shadow: none;
@@ -1182,9 +1207,6 @@ notebook > header.left tab:checked {
 	                  @notebook_active_tab_gradient_b);
 }
 
-notebook > header tab:focus {
-	padding: 2px;
-}
 
 /* close button styling */
 notebook button.flat.small-button {
@@ -1205,15 +1227,6 @@ notebook > header.* tab button:hover {
 	background-image: none;
 	background-color: transparent;
 	border-color: alpha(black, 0.1);
-}
-
-notebook button image {
-	border-radius: 4px;
-	color: mix(@theme_fg_color, @theme_base_color, 0.6);
-	border-style: solid;
-	border-color: transparent;
-	border-width: 1px;
-	padding: 0;
 }
 
 notebook button image:hover {
