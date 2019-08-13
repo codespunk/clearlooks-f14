@@ -571,6 +571,10 @@ levelbar block.empty {
  * ScrolledWindows *
  *******************/
 
+scrolledwindow {
+	border:solid 1px @border_color;
+}
+
 scrolledwindow.frame {
 	border-radius: 0px;
 }
