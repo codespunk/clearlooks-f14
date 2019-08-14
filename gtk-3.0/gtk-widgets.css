@@ -523,6 +523,20 @@ scale marks indicator {
 	color: @scale_mark_color;
 }
 
+/* this makes marks visible */
+scale.horizontal indicator,
+scale.horizontal.fine-tune indicator {
+    min-height: 4px;
+    min-width: 1px;
+}
+
+
+scale.vertical indicator,
+scale.vertical.fine-tune indicator {
+    min-height: 1px;
+    min-width: 4px;
+}
+
 scale:focus {
 }
 
