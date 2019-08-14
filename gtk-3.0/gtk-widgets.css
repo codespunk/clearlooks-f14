@@ -1,31 +1,57 @@
+/* default */
 * {
-	padding: 0;
+    -GtkArrow-arrow-scaling: 0.6;
+    -GtkButton-child-displacement-x: 0;
+    -GtkButton-child-displacement-y: 1;
+    -GtkButton-default-border: 0;
+    /*-GtkButton-image-spacing: 0;*/
+    -GtkButton-inner-border: 1;
+    -GtkButton-interior-focus: true;
+    -GtkButtonBox-child-min-height: 24;
+    /*-GtkButtonBox-child-internal-pad-y: 1;*/
+    -GtkCheckButton-indicator-size: 16;
+    -GtkCheckMenuItem-indicator-size: 12;
+    -GtkExpander-expander-size: 16;
+    -GtkHTML-link-color: @link_color;
+    -GtkIMHtml-hyperlink-color: @link_color;
+    -GtkMenu-horizontal-padding: 0;
+    -GtkMenu-vertical-padding: 0;
+    -GtkNotebook-initial-gap: 0;
+    -GtkProgressBar-min-horizontal-bar-height: 21;
+    -GtkProgressBar-min-vertical-bar-width: 21;
+    -GtkRange-slider-width: 13;
+    -GtkRange-stepper-size: 12;
+    -GtkRange-stepper-spacing: 0;
+    -GtkRange-trough-border: 0;
+    -GtkRange-trough-under-steppers: 1;
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-min-slider-length: 35;
+    -GtkScrolledWindow-scrollbar-spacing: 0;
+    -GtkScrolledWindow-scrollbars-within-bevel: 1;
+    -GtkStatusbar-shadow-type: none;
+    -GtkTextView-error-underline-color: @error_color;
+    /*-GtkToolButton-icon-spacing: 6;*/
+	 -GtkToolButton-icon-spacing: 4;
+    -GtkToolItemGroup-expander-size: 11;
+    -GtkTreeView-expander-size: 11;
+    -GtkWidget-focus-line-width: 1;
+    -GtkWidget-focus-padding: 0;
+    -GtkWidget-link-color: @link_color;
+    -GtkWidget-visited-link-color: @link_color;
+    -GtkWindow-resize-grip-height: 0;
+    -GtkWindow-resize-grip-width: 0;
+    -WnckTasklist-fade-overlay-rect: 0;
+    
+    -GtkPaned-handle-size: 5;
 
-	background-clip: padding-box;
-
-	-GtkToolButton-icon-spacing: 4;
-
-	-GtkTextView-error-underline-color: @error_color;
-
-	-GtkScrolledWindow-scrollbar-spacing: 3;
-
-	-GtkToolItemGroup-expander-size: 11;
-
-	-GtkIMHtml-hyperlink-color: @link_color;
-	-GtkHTML-link-color: @link_color;
-
-	-WnckTasklist-fade-overlay-rect: 0;
-
-	outline-color: @focus_border_color;
-	outline-style: dashed;
-	outline-offset: -2px;
-	outline-width: 1px;
-
-	-gtk-outline-radius: 2px;
+    background-clip: padding-box;
+    
+    outline-color: alpha(@theme_selected_bg_color, 0.5);
+    outline-style: solid;
+    outline-offset: 0;
+    
 	-gtk-icon-style: regular; /* disable symbolic icons */
-
-	-GtkWindow-resize-grip-width: 11;
-	-GtkWindow-resize-grip-height: 11;
 }
 
 /**********
@@ -37,6 +63,7 @@
 	box-shadow: none;
 	margin: 0;
 	padding: 0;
+	/*border-radius: 0px;*/
 	border: 1px solid @border_color;
 }
 
@@ -570,59 +597,63 @@ levelbar block.empty {
 /*******************
  * ScrolledWindows *
  *******************/
-
-scrolledwindow {
-	border:solid 1px @border_color;
-}
-
-scrolledwindow.frame {
-	border-radius: 0px;
-}
-
-scrolledwindow viewport {
-	background-color: @theme_bg_color;
-}
-
-/* avoid double borders when a viewport is
- * packed into a GtkScrolledWindow */
-scrolledwindow viewport.frame {
-	border-style: none;
-}
-
-scrolledwindow junction {
+ 
+scrolledwindow junction,
+scrolledwindow.frame junction {
 	border: none;
 	background: transparent;
 }
 
+scrolledwindow {
+border:solid 1px @border_color;
+}
+
+scrolledwindow.frame {
+border-radius: 0px;
+}
+
+scrolledwindow viewport {
+background-color: @theme_bg_color;
+}
+
+/* avoid double borders when a view or viewport is
+ * packed into a GtkScrolledWindow */
+scrolledwindow > .frame,
+scrolledwindow.frame > .frame,
+scrolledwindow > .view,
+scrolledwindow.frame > .view {
+border-style: none;
+border-radius:0px;
+}
+
+scrolledwindow.frame .view {
+border-style: none;
+border-radius:0px;
+}
+
+scrolledwindow junction {
+   border: none;
+   background: transparent;
+}
+
 scrolledwindow scrollbar.vertical {
-	background-color: @theme_bg_color;
-	border-left-width: 1px;
-	margin: -1px;
-	margin-left: -3px;
-	margin-bottom: -20px;
-	padding-bottom: 19px;
-}
+background-color: @theme_bg_color;
+border-left: solid 1px @border_color;
+padding-left:2px;
+margin-top: -1px;
+margin-right: -1px;
+margin-bottom: -19px;
+padding-bottom: 19px;
 
-scrolledwindow scrollbar.vertical trough {
-margin-left: 2px;
-}
-
-scrolledwindow scrollbar.vertical button {
-	margin-left: 2px;
 }
 
 scrolledwindow scrollbar.horizontal {
-	background-color: @theme_bg_color;
-	margin: -1px;
-	padding-top: 2px;
-	margin-top: -3px;
-}
-
-scrolledwindow scrollbar.horizontal trough {
-border:solid;
-border-color:@border_color;
-border-top-width:1px;
-border-bottom-width:1px;
+background-color: @theme_bg_color;
+border-top: solid 1px @border_color;
+padding-top: 2px;
+margin-left: -1px;
+margin-right: -1px;
+margin-bottom: -1px;
 }
 
 /***********
@@ -1552,7 +1583,7 @@ toolbar.primary-toolbar combobox > .linked > button.combo:last-child {
 
 scrollbar {
 	background-image: none;
-	border-style: solid;
+	/*border-style: solid;*/
 	border-color: @scrollbar_trough_border_color;
 	-GtkScrollbar-has-backward-stepper: true;
 	-GtkScrollbar-has-forward-stepper: true;
@@ -1562,23 +1593,22 @@ scrollbar {
 
 scrollbar.vertical {
     border-width: 0px 0px 0px 0px;
-    min-width: 14px;
 }
 
 scrollbar.horizontal {
-    border-width: 1px 0px 0px 0px;
-    min-height: 14px;
+    border-width: 0px 0px 0px 0px;
 }
 
 scrollbar trough {
+	border-style: solid;
 	border-color: @scrollbar_trough_border_color;
 	border-radius: 0;
 	border-image: none;
 }
 
 scrollbar.horizontal trough {
-	min-height: 14px;
-	border-width: 0px 1px 0px 1px;
+	min-height: 13px;
+	border-width: 1px 0px 1px 0px;
 	border-image: none;
 	background-image: -gtk-gradient (linear,
 	                  left top,
@@ -1588,8 +1618,8 @@ scrollbar.horizontal trough {
 }
 
 scrollbar.vertical trough {
-	min-width: 14px;
-	border-width: 0px 1px;
+	min-width: 13px;
+	border-width: 0px 1px 0px 1px;
 	border-image: none;
 	background-image: -gtk-gradient (linear,
 	                  left top,
@@ -1611,7 +1641,7 @@ scrollbar .button {
 
 scrollbar.vertical button,
 scrollbar.vertical .button {
-    min-width: 14px;
+    min-width: 13px;
     min-height: 13px;
     padding: 0;
 }
@@ -1619,7 +1649,7 @@ scrollbar.vertical .button {
 scrollbar.horizontal button,
 scrollbar.horizontal .button {
     min-width: 13px;
-    min-height: 14px;
+    min-height: 13px;
     padding: 0;
 }
 
@@ -1766,15 +1796,15 @@ scrollbar .button:disabled {
 
 scrollbar.vertical slider,
 scrollbar.vertical .slider {
-	min-width: 14px;
+	min-width: 13px;
 	min-height: 42px;
 	margin: 0px -1px 0px -1px;
 }
 
 scrollbar.horizontal slider,
 scrollbar.horizontal .slider {
+	min-height: 13px;
 	min-width: 42px;
-	min-height: 14px;
 	margin: -1px 0px -1px 0px;
 }
 
@@ -2312,8 +2342,7 @@ view,
 view text,
 .view text,
 iconview text,
-textview text
-treeview {
+textview text {
 	background-color: @theme_base_color;
 	color: @theme_text_color;
 }
@@ -2326,15 +2355,13 @@ view:selected:focus,
 view text selection,
 .view text selection,
 view text selection:focus,
-.view text selection:focus
-treeview:selected {
+.view text selection:focus {
 	background-color: @theme_selected_bg_color;
 	color: @theme_selected_fg_color
 }
 
 view:disabled,
-.view:disabled,
-treeview:disabled {
+.view:disabled {
 	background-color: @insensitive_bg_color;
 	color: @insensitive_fg_color;
 }
@@ -2374,6 +2401,19 @@ treeview {
 	-GtkTreeView-grid-line-pattern: '';
 	-GtkTreeView-tree-line-width: 0;
 	-GtkTreeView-tree-line-pattern: '';
+	
+	background-color: @theme_base_color;
+	color: @theme_text_color;
+}
+
+treeview:selected {
+	background-color: @theme_selected_bg_color;
+	color: @theme_selected_fg_color
+}
+
+treeview:disabled {
+	background-color: @insensitive_bg_color;
+	color: @insensitive_fg_color;
 }
 
 treeview.dnd {
