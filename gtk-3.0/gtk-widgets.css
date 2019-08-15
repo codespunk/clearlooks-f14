@@ -1254,8 +1254,8 @@ notebook > header.left tab:checked {
 	                  @notebook_active_tab_gradient_b);
 }
 
-
 /* close button styling */
+paned.horizontal notebook button.flat,
 notebook button.flat.small-button {
     border-image: none;
     border-radius: 4px;
