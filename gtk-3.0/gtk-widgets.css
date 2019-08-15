@@ -85,27 +85,94 @@ window {
 	background-color: @theme_bg_color;
 }
 
+.background:backdrop {
+        text-shadow: none;
+        -gtk-icon-shadow: none;
+}
+
 *:selected,
-*:selected:focus {
+*:selected:focus,
+*:selected:backdrop {
 	background-color: @theme_selected_bg_color;
 	color: @theme_selected_fg_color;
 }
 
+/*
+*:selected:backdrop {
+        color: @theme_fg_color;
+}
+*/
+
 *:disabled {
-	background-color: @insensitive_bg_color;
+	/*background-color: @insensitive_bg_color;*/
 	color: @insensitive_fg_color;
 	text-shadow: 1px 1px @insensitive_text_shadow_color;
+	
+	/* Apply effects to insensitive and prelit images */
+	-gtk-icon-effect: dim;
+	/*border-color: @insensitive_borders;*/
+}
+
+button image:disabled {
+	opacity: 0.7;
+}
+
+*:hover {
+        /*-gtk-icon-effect: highlight;*/
+}
+
+.gtkstyle-fallback {
+        background-color: @theme_bg_color;
+        color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:hover {
+        background-color: shade(@theme_bg_color, 1.10);
+        color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:active {
+        background-color: shade(@theme_bg_color, 0.90);
+        color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:disabled {
+        background-color: @insensitive_bg_color;
+        color: @insensitive_fg_color;
+}
+
+.gtkstyle-fallback:selected {
+        background-color: @theme_selected_bg_color;
+        color: @theme_selected_fg_color;
+}
+
+/* Fix for applications that have issues finding a default monospace font */
+.monospace {
+  font-family: Monospace;
 }
 
 image,
 image:disabled,
-label,
-label:disabled,
+/*label,
+label:disabled,*/
 box,
 box:disabled,
-GtkGrid,
-GtkGrid:disabled {
-	background-color: transparent;
+grid,
+grid:disabled {
+        background-color: transparent;
+}
+
+flowbox flowboxchild {
+        padding: 3px;
+        border-radius: 3px;
+}
+
+flowbox flowboxchild:selected {
+        outline-offset: -2px;
+}
+
+textview {
+        background-color: @theme_base_color;
 }
 
 /************
@@ -671,19 +738,18 @@ margin-bottom: -1px;
 /***********
  * Buttons *
  ***********/
+
+/* We want anything inside buttons to use its background */
+button * {
+    background-color: transparent;
+}
+
 button {
 	min-height: 16px;
 }
 
 button,
-button.menuitem.menubar,
-toolbar.inline-toolbar button,
-toolbar.primary-toolbar button,
-toolbar.primary-toolbar button:active,
-toolbar.horizontal button,
-toolbar.horizontal button:active,
-.titlebar .linked.raised button,
-.titlebar .linked.raised button:active {
+button.menuitem.menubar {
 	padding: 5px 8px 6px;
 	background-image: -gtk-gradient (linear,
 	                  left top,
@@ -693,13 +759,6 @@ toolbar.horizontal button:active,
 	                  color-stop (0.50, @button_gradient_c),
 	                  to (@button_gradient_d));
 	background-color: transparent;
-}
-
-toolbar button,
-toolbar.primary-toolbar button,
-toolbar.horizontal button:hover,
-toolbar.horizontal button:active {
-	padding: 4px 6px;
 }
 
 .path-bar button,
@@ -735,26 +794,6 @@ button {
 	border-color: transparent;
 }
 
-/* We may want a background for focused buttons, but in the meantime let's remove it too */
-GtkMenuToolButton *,
-toolbar.horizontal button,
-toolbar.horizontal button.combo,
-toolbar.primary-toolbar button,
-toolbar.inline-toolbar button,
-toolbar.primary-toolbar button:disabled {
-	background-image: none;
-	background-color: transparent;
-}
-
-toolbar.primary-toolbar button {
-	border-image: none;
-	border-style: solid;
-	border-width: 1px 1px 2px 1px;
-	border-color: transparent;
-}
-
-toolbar.primary-toolbar button:checked,
-toolbar.inline-toolbar button:checked,
 button:active,
 button:active:focus,
 button:focus,
@@ -767,25 +806,18 @@ button:hover {
 button:disabled,
 button:active:disabled {
 	color: @insensitive_fg_color;
+	background-color: @insensitive_bg_color;
 }
 
-/* Focused primary toolbar button background */
-button:focus,
-toolbar.primary-toolbar button:focus {
+
+
+/* Focused button background */
+button:focus {
 	background-image: linear-gradient(to bottom,
 	                  @pt_button_focus_gradient_a,
 	                  @pt_button_focus_gradient_b 50%,
 	                  @pt_button_focus_gradient_c 50%,
 	                  @pt_button_focus_gradient_d);
-}
-
-/* Focused + prelit primary toolbar button background */
-toolbar.primary-toolbar button:focus:hover {
-	background-image: linear-gradient(to bottom,
-	                  @pt_button_focus_hover_gradient_a,
-	                  @pt_button_focus_hover_gradient_b 50%,
-	                  @pt_button_focus_hover_gradient_c 50%,
-	                  @pt_button_focus_hover_gradient_d);
 }
 
 /*********
@@ -970,23 +1002,7 @@ button:hover:active,
 menuitem button:hover,
 spinbutton button:active,
 spinbutton button:active:hover,
-combobox button.combo:checked,
-toolbar button:checked,
-toolbar button:checked:hover,
-toolbar button:hover:active,
-toolbar button.raised:checked,
-toolbar .raised button:checked,
-toolbar button.raised:hover:active,
-toolbar button.raised:checked:hover,
-toolbar .raised button:hover:active,
-toolbar .raised button:checked:hover,
-toolbar.primary-toolbar combobox button.combo:checked,
-toolbar.primary-toolbar button:checked,
-toolbar.primary-toolbar button:hover:active,
-toolbar.primary-toolbar button:focus:active,
-toolbar.primary-toolbar button:focus:hover:active,
-toolbar.inline-toolbar button:checked,
-toolbar.inline-toolbar button:hover:active {
+combobox button.combo:checked {
 	background-image: linear-gradient(to bottom,
 	                  @button_active_gradient_a,
 	                  @button_active_gradient_b 3px,
@@ -1017,14 +1033,7 @@ trough.vertical {
 button:active,
 button:hover,
 spinbutton button:hover,
-combobox button.combo:hover,
-toolbar button:hover,
-toolbar button.raised:hover,
-toolbar .raised button:hover,
-toolbar combobox button.combo:hover,
-toolbar.primary-toolbar button:hover,
-toolbar.primary-toolbar combobox button.combo:hover,
-colorchooser #add-color-button:hover {
+combobox button.combo:hover {
 	background-color: transparent;
 	background-image: linear-gradient(to bottom,
 	                  @button_hover_gradient_a 50%,
@@ -1059,24 +1068,6 @@ button.combo:checked:disabled {
 
 button.combo:disabled * {
 background:transparent;
-}
-
-/* Focused primary toolbar button background */
-toolbar.primary-toolbar button:focus {
-	background-image: linear-gradient(to bottom,
-	                  @pt_button_focus_gradient_a,
-	                  @pt_button_focus_gradient_b 50%,
-	                  @pt_button_focus_gradient_c 50%,
-	                  @pt_button_focus_gradient_d);
-}
-
-/* Focused + prelit primary toolbar button background */
-toolbar.primary-toolbar button:focus:hover {
-	background-image: linear-gradient(to bottom,
-	                  @pt_button_focus_hover_gradient_a,
-	                  @pt_button_focus_hover_gradient_b 50%,
-	                  @pt_button_focus_hover_gradient_c 50%,
-	                  @pt_button_focus_hover_gradient_d);
 }
 
 button separator {
@@ -1491,28 +1482,7 @@ combobox > .linked > button.combo:disabled:only-child {
 	border-radius: 4px;
 	border-width: 1px;
 }
-/*
-toolbar.primary-toolbar combobox > .linked > entry.combo,
-toolbar.primary-toolbar combobox > .linked > button.combo {
-	border-image-width: 4px 4px 4px 0;
-	border-radius: 0 4px 4px 0;
-	border-left-width: 0;
-}
 
-toolbar.primary-toolbar combobox > .linked > entry.combo:first-child,
-toolbar.primary-toolbar combobox > .linked > button.combo:first-child {
-	border-image-width: 4px 0 4px 4px;
-	border-radius: 4px 0 0 4px;
-	border-right-width: 0;
-}
-
-toolbar.primary-toolbar combobox > .linked > entry.combo:last-child,
-toolbar.primary-toolbar combobox > .linked > button.combo:last-child {
-	border-image-width: 4px 4px 4px 0;
-	border-radius: 0 4px 4px 0;
-	border-left-width: 0;
-}
-*/
 /* linked combobox */
 
 /* Middle button */
@@ -2107,37 +2077,65 @@ checkbutton:selected:focus {
  ************/
 
 toolbar {
-	border-style: none;
-	border-color: darker (@theme_bg_color);
-	padding: 3px 0px 1px 2px;
-}
-
-toolbar button {
-	padding: 4px;
-	margin: 0px 1px 0px 1px;
+   padding: 3px 0px 1px 2px;
 }
 
 toolbar:disabled {
-	color: alpha (@theme_fg_color, 0.6);
+   background-image: none;
+   background-color: transparent;
+   border-color: shade (@theme_bg_color, 0.91);
+   /*color: alpha (@theme_fg_color, 0.6);*/
+}
+
+toolbar button {
+   padding: 4px;
+   margin: 0px 1px 0px 1px;
+
+   /* Unfocused toolbar buttons do not have a background by default */
+   background-image: none;
+   background-color: transparent;
+}
+
+toolbar .image-button {
+	background-color: transparent;
 }
 
 toolbar separator {
-	border-left: solid 1px #cccac7;
-	border-right: solid 1px white;
-	padding:0px;
-	margin: 6px 5px 7px 5px;
+   border-left: solid 1px #cccac7;
+   border-right: solid 1px white;
+   padding:0px;
+   margin: 6px 5px 7px 5px;
 }
 
-/********************
- * Menubar Toolbars *
- ********************/
-
-toolbar menubar {
-	border-style: none;
-	-GtkToolbar-button-relief: normal;
-	padding-left: 4px;
-	padding-right: 4px;
+toolbar.vertical {
+   border-style: none;
+   border-color: darker (@theme_bg_color);
+   padding: 2px 2px 0px 2px;
 }
+
+toolbar.vertical button {
+   margin: 1px 0px 1px 0px;
+}
+
+toolbar.vertical separator {
+   border-top: solid 1px #cccac7;
+   border-bottom: solid 1px white;
+   padding:0px;
+   margin: 5px 6px 5px 7px;
+}
+
+/* Only primary and inline toolbars have a gradient background */
+toolbar.primary-toolbar,
+toolbar.inline-toolbar  {
+   background-color: transparent;
+   background-image: linear-gradient(to bottom,
+                     @toolbar_inner_border_color 1px,
+                     @toolbar_gradient_a 2px,
+                     @toolbar_gradient_b 50%,
+                     @toolbar_gradient_c 50%,
+                     @toolbar_gradient_d);
+}
+
 
 /********************
  * Primary Toolbars *
@@ -2147,33 +2145,17 @@ toolbar menubar {
  * hint on the containing vbox, so we need to handle both these cases here.
  */
 toolbar.primary-toolbar {
-	border-width: 1px 0 1px 0;
-	border-radius: 0;
-	border-style: solid;
-	border-top-color: @toolbar_border_top_color;
-	border-bottom-color: @toolbar_border_bottom_color;
-	-GtkWidget-window-dragging: true;
-	-GtkToolbar-button-relief: normal;
+   border-width: 1px 0 1px 0;
+   border-radius: 0;
+   border-style: solid;
+   border-top-color: @toolbar_border_top_color;
+   border-bottom-color: @toolbar_border_bottom_color;
 }
 
 toolbar.primary-toolbar:disabled {
-	background-image: none;
-	background-color: transparent;
-	border-color: shade (@theme_bg_color, 0.91);
-}
-
-/* progressbars on primary toolbar entries are special */
-toolbar.primary-toolbar entry progress {
-	background-image: -gtk-gradient (linear,
-	                  left top, left bottom,
-	                  from (@trough_gradient_a),
-	                  to (@trough_gradient_b));
-	border-width: 1px;
-	border-radius: 4px;
-	border-style: solid;
-	border-color: shade(@internal_element_color, 1.10);
-	border-image: none;
-	color: @theme_text_color;
+   background-image: none;
+   background-color: transparent;
+   border-color: shade (@theme_bg_color, 0.91);
 }
 
 /*******************
@@ -2181,28 +2163,26 @@ toolbar.primary-toolbar entry progress {
  *******************/
 
 toolbar.inline-toolbar {
-	border-width: 1px;
-	border-radius: 0;
-	border-style: solid;
-	-GtkToolbar-button-relief: normal;
-	padding: 4px;
+   border-color:@border_color;
+   border-width: 1px;
+   border-radius: 0;
+   border-style: solid;
+   padding: 4px;
 }
 
 toolbar.inline-toolbar:last-child {
-	border-width: 0 1px 1px 1px;
-	border-radius: 0 0 4px 4px;
+   border-width: 1px 1px 1px 1px;
+   margin-top:3px;
 }
 
-/* Primary and inline toolbars background */
-toolbar.primary-toolbar,
-toolbar.inline-toolbar  {
-	background-color: transparent;
-	background-image: linear-gradient(to bottom,
-	                  @toolbar_inner_border_color 1px,
-	                  @toolbar_gradient_a 2px,
-	                  @toolbar_gradient_b 50%,
-	                  @toolbar_gradient_c 50%,
-	                  @toolbar_gradient_d);
+/********************
+ * Menubar Toolbars *
+ ********************/
+
+toolbar menubar {
+   border-style: none;
+   padding-left: 4px;
+   padding-right: 4px;
 }
 
 /***********
@@ -2669,10 +2649,10 @@ expander scrolledwindow.frame {
    border-width: 1px;
 }
 
-expander toolbar.inline-toolbar {
+/*expander toolbar.inline-toolbar {
 	border-width: 0px;
 	border-style: none;
-}
+}*/
 
 /* Calendars */
 calendar {
@@ -3200,3 +3180,4 @@ printdialog.background > box.view.vertical.dialog-vbox {
 dialog.background dialog-vbox.vertical .vertical {
 	background: transparent;
 }
+
