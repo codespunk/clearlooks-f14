@@ -1,3 +1,11 @@
+
+/*****************
+ * MATE Terminal *
+ *****************/
+.mate-terminal scrollbar.vertical {
+padding-left:1px;
+}
+
 /************
  * Nautilus *
  ************/
