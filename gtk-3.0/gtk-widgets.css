@@ -906,6 +906,7 @@ border-image-source: linear-gradient(to top,
     @theme_bg_color 20px,
     @border_color 20px);
 border-image-slice: 1;
+box-shadow: none;
 }
 
 scrolledwindow > scrollbar.horizontal {
@@ -947,12 +948,9 @@ button.file separator {
 margin-right:4px;
 }
 
-scrollbar.vertical button.down {
-  box-shadow: 1px 1px #dedcda, -1px 0px 1px 0px #e7e5e4;
-}
-
-scrollbar.horizontal button.down {
-  box-shadow: 1px 1px #dedcda, 0px -1px 1px 0px #e7e5e4;
+scrollbar button,
+scrollbar button:disabled {
+  box-shadow: none;
 }
 
 treeview > header > button {
@@ -2239,6 +2237,7 @@ scrollbar {
 
 scrollbar.vertical {
     border-width: 0px 0px 0px 0px;
+  box-shadow: 1px 1px #dedcda, -1px 0px 1px 0px #e7e5e4;
 }
 
 scrollbar.horizontal {
@@ -2529,7 +2528,7 @@ menubar,
                      left bottom,
                      from (@menubar_gradient_a),
                      color-stop (0.50, @menubar_gradient_b),
-                     to (@menubar_gradient_c));
+                     to (@menubar_gradient_c));menubar
 }
 
 menubar menuitem,
@@ -2692,6 +2691,10 @@ menu menuitem .radio:disabled {
    padding-right: 2px;
 }
 
+menubar {
+border-bottom:solid 1px #c4c2bf;
+}
+
 /***************
  * Menu Button *
  ***************/
@@ -2820,7 +2823,7 @@ toolbar.inline-toolbar  {
  * hint on the containing vbox, so we need to handle both these cases here.
  */
 toolbar.primary-toolbar {
-   border-width: 1px 0 1px 0;
+   border-width: 0px 0 1px 0;
    border-radius: 0;
    border-style: solid;
    border-top-color: @toolbar_border_top_color;
