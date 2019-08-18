@@ -39,8 +39,9 @@
     -GtkWidget-focus-padding: 0;
     -GtkWidget-link-color: @link_color;
     -GtkWidget-visited-link-color: @link_color;
-    -GtkWindow-resize-grip-height: 0;
-    -GtkWindow-resize-grip-width: 0;
+    -GtkWindow-resize-grip-default: true;
+    -GtkWindow-resize-grip-height: 11;
+    -GtkWindow-resize-grip-width: 11;
     -WnckTasklist-fade-overlay-rect: 0;
     
     -GtkPaned-handle-size: 5;
@@ -397,11 +398,18 @@ statusbar frame > border
    border: none;
 }
 
+/*
 statusbar.horizontal {
 box-shadow:inset 0px 4px 0px 0px #fcfcfc,
            inset 0px 3px 0px 0px #c4c2bf,
            inset 0px 2px 0px 0px @theme_bg_color;
+margin-left:-10px;
+margin-right:-10px;
+padding-right:10px;
+padding-left:10px;
+margin-top:1px;
 }
+*/
 
 statusbar frame > button.flat {
    padding: 0px;
