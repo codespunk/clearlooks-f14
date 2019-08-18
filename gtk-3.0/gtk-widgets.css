@@ -316,8 +316,13 @@ border-width: 0px 0px 1px 0px;
 }
 
 button separator,
-list separator {
+list > separator {
 background:transparent;
+}
+list > separator.horizontal {
+min-height:0px;
+border:0px;
+background:none;
 }
 
 .floating-bar {
