@@ -264,6 +264,37 @@ tooltip *,
    text-shadow: none;
 }
 
+
+/*********************
+ * Spinner Animation *
+ *********************/
+/* This is could be CPU-intensive */
+
+@keyframes spin {
+    to { -gtk-icon-transform: rotate(1turn); }
+}
+
+spinner {
+    background: none;
+    background-color: transparent;
+    color:mix(#297be5, #91b0da, 0.4);
+    opacity: 0;
+    -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+}
+
+spinner:checked {
+    opacity: 1;
+    animation: spin 1s linear infinite;
+}
+
+spinner:active:disabled {
+    opacity: 0.5;
+}
+
+button spinner:checked {
+    color: @theme_fg_color;
+}
+
 /*****************
  * Miscellaneous *
  *****************/
@@ -287,25 +318,6 @@ border-width: 0px 0px 1px 0px;
 button separator,
 list separator {
 background:transparent;
-}
-
-@keyframes spin {
-   to {
-       -gtk-icon-transform: rotate(1turn);
-   }
-}
-spinner {
-   background-image: none;
-   background-color: blue;
-   opacity: 0;
-   -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
-}
-spinner:active {
-   opacity: 1;
-   animation: spin 1s linear infinite;
-}
-spinner:active:disabled {
-   opacity: 0.5;
 }
 
 .floating-bar {
