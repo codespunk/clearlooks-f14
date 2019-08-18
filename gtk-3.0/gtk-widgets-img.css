@@ -1,721 +1,440 @@
-/**********
- * Assets *
- **********/
+/***********************************************************************
+ * This section can be modified to create color variants of the theme. *
+ ***********************************************************************/
 
-/*************
- * GtkSwitch *
- *************/
+/****************
+ * color scheme *
+ ****************/
 
-switch slider {
-	background-image: linear-gradient(to bottom,
-	                      alpha (@button_gradient_a, 1.0),
-	                      alpha (@button_gradient_b, 0.5) 50%,
-	                      alpha (@button_gradient_c, 0.5) 50%,
-	                      alpha (@button_gradient_d, 1.0)),
-	                  -gtk-scaled(url("img/slider-horz-grip.png"),
-	                      url("img/slider-horz-grip@2.png"));
-	background-repeat: no-repeat;
-	background-position: center center;
-}
+@define-color theme_base_color #ffffff;
 
-/*switch:disabled:checked slider,
-switch:disabled slider {
-	background-image: linear-gradient(to bottom,
-	                      alpha (#ededed, 0.5),
-	                      alpha (#f5f5f4, 1) 1px,
-	                      alpha (#f5f5f4, 0.5) 50%,
-	                      alpha (#e7e7e6, 0.5) 50%,
-	                      alpha (#e7e7e6, 0.5) 95%,
-	                      alpha (#ededed, 0.5));
-}
+@define-color theme_bg_color #edeceb;
+@define-color theme_fg_color #000000;
 
-switch:disabled:checked slider {
-	background-image: linear-gradient(to bottom,
-	                      alpha (#ededed, 0.5),
-	                      alpha (#f5f5f4, 1) 1px,
-	                      alpha (#f5f5f4, 0.5) 50%,
-	                      alpha (#e7e7e6, 0.5) 50%,
-	                      alpha (#e7e7e6, 0.5) 95%,
-	                      alpha (#ededed, 0.5)),
-	                  -gtk-scaled(url("img/slider-horz-grip.png"),
-	                      url("img/slider-horz-grip@2.png"));
-}*/
+@define-color theme_selected_bg_color #86abd9;
+@define-color theme_selected_fg_color #ffffff;
+
+@define-color theme_tooltip_bg_color #e7f3fd;
+@define-color theme_tooltip_fg_color #000000;
+
+@define-color theme_text_color #1a1a1a;
+
+@define-color link_color #0000ee;
+@define-color visited_link_color #551a8b;
+
+/*****************
+ * error/warning *
+ *****************/
+
+@define-color error_color #cc0000;
+
+@define-color warning_bg_color #faad3d;
 
 /***************
- * Resize grip *
+ * core colors *
  ***************/
 
-.grip {
-	background-image: -gtk-scaled(url("img/resize-grip.png"), url("img/resize-grip@2.png"));
-}
+/* Core colors are only used in the current file, as bases for other
+   color declarations. */
 
-/*************
- * Scrollbar *
- *************/
+@define-color core_color_a #a4c2e8; /* Core color for blue widgets in Clearlooks-Phenix. */
+@define-color core_color_b #edeceb; /* Core color for gray widgets in Clearlooks-Phenix. */
 
-scrollbar slider {
-	background-repeat: no-repeat;
-	background-position: center center;
-}
-
-scrollbar.vertical slider {
-	background-image: linear-gradient(to right,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5),
-	                      alpha (@scrollbar_slider_gradient_a, 0.5) 1px,
-	                      alpha (@scrollbar_slider_gradient_b, 0.5) 50%,
-	                      alpha (@scrollbar_slider_gradient_c, 0.5) 50%,
-	                      alpha (@scrollbar_slider_gradient_d, 0.5) 95%,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
-	                  -gtk-scaled(url("img/slider-vert-grip.png"),
-	                      url("img/slider-vert-grip@2.png"));
-}
-
-scrollbar.horizontal slider {
-	background-image: linear-gradient(to bottom,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5),
-	                      alpha (@scrollbar_slider_gradient_a, 0.5) 1px,
-	                      alpha (@scrollbar_slider_gradient_b, 0.5) 50%,
-	                      alpha (@scrollbar_slider_gradient_c, 0.5) 50%,
-	                      alpha (@scrollbar_slider_gradient_d, 0.5) 95%,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
-	                  -gtk-scaled(url("img/slider-horz-grip.png"),
-	                      url("img/slider-horz-grip@2.png"));
-}
-
-scrollbar.vertical slider:hover {
-	background-image: linear-gradient(to right,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5),
-	                      alpha (@scrollbar_slider_hover_gradient_a, 0.5) 1px,
-	                      alpha (@scrollbar_slider_hover_gradient_b, 0.5) 50%,
-	                      alpha (@scrollbar_slider_hover_gradient_c, 0.5) 50%,
-	                      alpha (@scrollbar_slider_hover_gradient_d, 0.5) 95%,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
-	                  -gtk-scaled(url("img/slider-vert-grip.png"),
-	                      url("img/slider-vert-grip@2.png"));
-}
-
-scrollbar.horizontal slider:hover {
-	background-image: linear-gradient(to bottom,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5),
-	                      alpha (@scrollbar_slider_hover_gradient_a, 0.5) 1px,
-	                      alpha (@scrollbar_slider_hover_gradient_b, 0.5) 50%,
-	                      alpha (@scrollbar_slider_hover_gradient_c, 0.5) 50%,
-	                      alpha (@scrollbar_slider_hover_gradient_d, 0.5) 95%,
-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
-	                  -gtk-scaled(url("img/slider-horz-grip.png"),
-	                      url("img/slider-horz-grip@2.png"));
-}
-
-/*************************
- * Check and Radio items *
- *************************/
-
-check,
-check row:selected,
-check row:selected:focus {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-unchecked.png"),
-		url("img/checkbox-unchecked@2.png"));
-}
-
-check:hover,
-check row:selected:hover,
-check row:selected:focus:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-unchecked-hover.png"),
-		url("img/checkbox-unchecked-hover@2.png"));
-}
-
-check:disabled,
-check row:selected:disabled,
-check row:selected:focus:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-unchecked-insensitive.png"),
-		url("img/checkbox-unchecked-insensitive@2.png"));
-}
-
-check:checked,
-check row:selected:checked,
-check row:selected:focus:checked,
-check:active,
-check row:selected:active,
-check row:selected:focus:active {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-checked.png"),
-		url("img/checkbox-checked@2.png"));
-}
-
-check:checked:hover,
-check row:selected:checked:hover,
-check row:selected:focus:checked:hover,
-check:active:hover,
-check row:selected:active:hover,
-check row:selected:focus:active:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-checked-hover.png"),
-		url("img/checkbox-checked-hover@2.png"));
-}
-
-check:checked:disabled,
-check row:selected:checked:disabled,
-check row:selected:focus:checked:disabled,
-check:active:disabled,
-check row:selected:active:disabled,
-check row:selected:focus:active:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-checked-insensitive.png"),
-		url("img/checkbox-checked-insensitive@2.png"));
-}
-
-check:indeterminate,
-check row:selected:indeterminate,
-check row:selected:focus:indeterminate {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-mixed.png"),
-		url("img/checkbox-mixed@2.png"));
-}
-
-check:indeterminate:hover,
-check row:selected:indeterminate:hover,
-check row:selected:focus:indeterminate:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-mixed-hover.png"),
-		url("img/checkbox-mixed-hover@2.png"));
-}
-
-check:indeterminate:disabled,
-check row:selected:indeterminate:disabled,
-check row:selected:focus:indeterminate:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/checkbox-mixed-insensitive.png"),
-		url("img/checkbox-mixed-insensitive@2.png"));
-}
-
-radio,
-radio row:selected,
-radio row:selected:focus {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-unchecked.png"),
-		url("img/radio-unchecked@2.png"));
-}
-
-radio:hover,
-radio row:selected:hover,
-radio row:selected:focus:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-unchecked-hover.png"),
-		url("img/radio-unchecked-hover@2.png"));
-}
-
-radio:disabled,
-radio row:selected:disabled,
-radio row:selected:focus:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-unchecked-insensitive.png"),
-		url("img/radio-unchecked-insensitive@2.png"));
-}
-
-radio:checked,
-radio row:selected:checked,
-radio row:selected:focus:checked,
-radio:active,
-radio row:selected:active,
-radio row:selected:focus:active {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-checked.png"),
-		url("img/radio-checked@2.png"));
-}
-
-radio:checked:hover,
-radio row:selected:checked:hover,
-radio row:selected:focus:checked:hover,
-radio:active:hover,
-radio row:selected:active:hover,
-radio row:selected:focus:active:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-checked-hover.png"),
-		url("img/radio-checked-hover@2.png"));
-}
-
-radio:checked:disabled,
-radio row:selected:checked:disabled,
-radio row:selected:focus:checked:disabled,
-radio:active:disabled,
-radio row:selected:active:disabled,
-radio row:selected:focus:active:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-checked-insensitive.png"),
-		url("img/radio-checked-insensitive@2.png"));
-}
-
-radio:indeterminate,
-radio row:selected:indeterminate,
-radio row:selected:focus:indeterminate {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-mixed.png"),
-		url("img/radio-mixed@2.png"));
-}
-
-radio:indeterminate:hover,
-radio row:selected:indeterminate:hover,
-radio row:selected:focus:indeterminate:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-mixed-hover.png"),
-		url("img/radio-mixed-hover@2.png"));
-}
-
-radio:indeterminate:disabled,
-radio row:selected:indeterminate:disabled,
-radio row:selected:focus:indeterminate:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/radio-mixed-insensitive.png"),
-		url("img/radio-mixed-insensitive@2.png"));
-}
-
-/*********************
- * GtkScale's slider *
- *********************/
- 
-scale slider,
-scale.horizontal slider {
-	background-image: -gtk-scaled(url("img/scale-slider-horz.png"),
-		url("img/scale-slider-horz@2.png"));
-}
-
-scale slider:hover,
-scale.horizontal slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-hover.png"),
-		url("img/scale-slider-horz-hover@2.png"));
-}
-
-scale:disabled slider,
-scale slider:disabled,
-scale.horizontal slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-insensitive.png"),
-		url("img/scale-slider-horz-insensitive@2.png"));
-}
-
-scale.vertical slider {
-	background-image: -gtk-scaled(url("img/scale-slider-vert.png"),
-		url("img/scale-slider-vert@2.png"));
-}
-
-scale.vertical slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-hover.png"),
-		url("img/scale-slider-vert-hover@2.png"));
-}
-
-scale.vertical:disabled slider,
-scale.vertical slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-insensitive.png"),
-		url("img/scale-slider-vert-insensitive@2.png"));
-}
-
-scale.horizontal.scale-has-marks-above slider {
-	background-image: -gtk-scaled(url("img/scale-slider-horz.png"),
-		url("img/scale-slider-horz@2.png"));
-}
-
-scale.horizontal.scale-has-marks-above slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-hover.png"),
-		url("img/scale-slider-horz-hover@2.png"));
-}
-
-scale.horizontal.scale-has-marks-above slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-insensitive.png"),
-		url("img/scale-slider-horz-insensitive@2.png"));
-}
-
-scale.vertical.scale-has-marks-above slider {
-	background-image: -gtk-scaled(url("img/scale-slider-vert.png"),
-		url("img/scale-slider-vert@2.png"));
-}
-
-scale.vertical.scale-has-marks-above slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-hover.png"),
-		url("img/scale-slider-vert-hover@2.png"));
-}
-
-scale.vertical.scale-has-marks-above slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-insensitive.png"),
-		url("img/scale-slider-vert-insensitive@2.png"));
-}
-
-scale.horizontal.scale-has-marks-below slider {
-	background-image: -gtk-scaled(url("img/scale-slider-horz.png"),
-		url("img/scale-slider-horz@2.png"));
-}
-
-scale.horizontal.scale-has-marks-below slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-hover.png"),
-		url("img/scale-slider-horz-hover@2.png"));
-}
-
-scale.horizontal.scale-has-marks-below slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-horz-insensitive.png"),
-		url("img/scale-slider-horz-insensitive@2.png"));
-}
-
-scale.vertical.scale-has-marks-below slider {
-	background-image: -gtk-scaled(url("img/scale-slider-vert.png"),
-		url("img/scale-slider-vert@2.png"));
-}
-
-scale.vertical.scale-has-marks-below slider:hover {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-hover.png"),
-		url("img/scale-slider-vert-hover@2.png"));
-}
-
-scale.vertical.scale-has-marks-below slider:disabled {
-	background-image: -gtk-scaled(url("img/scale-slider-vert-insensitive.png"),
-		url("img/scale-slider-vert-insensitive@2.png"));
-}
-
-/*********
- * Menus *
- *********/
-
-menu menuitem check {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox.png"),
-		url("img/menuitem-checkbox@2.png"));
-}
-
-menu menuitem check:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-hover.png"),
-		url("img/menuitem-checkbox-hover@2.png"));
-}
-
-menu menuitem check:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-insensitive.png"),
-		url("img/menuitem-checkbox-insensitive@2.png"));
-}
-
-menu menuitem check:checked,
-menu menuitem check:active {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-checked.png"),
-		url("img/menuitem-checkbox-checked@2.png"));
-}
-
-menu menuitem check:checked:hover,
-menu menuitem check:active:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-checked-hover.png"),
-		url("img/menuitem-checkbox-checked-hover@2.png"));
-}
-
-menu menuitem check:checked:disabled,
-menu menuitem check:active:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-checked-insensitive.png"),
-		url("img/menuitem-checkbox-checked-insensitive@2.png"));
-}
-
-menu menuitem check:indeterminate,
-menu menuitem radio:indeterminate {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-mixed.png"),
-		url("img/menuitem-checkbox-mixed@2.png"));
-}
-
-menu menuitem check:indeterminate:hover,
-menu menuitem radio:indeterminate:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-mixed-hover.png"),
-		url("img/menuitem-checkbox-mixed-hover@2.png"));
-}
-
-menu menuitem check:indeterminate:disabled,
-menu menuitem radio:indeterminate:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-checkbox-mixed-insensitive.png"),
-		url("img/menuitem-checkbox-mixed-insensitive@2.png"));
-}
-
-menu menuitem radio {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio.png"),
-		url("img/menuitem-radio@2.png"));
-}
-
-menu menuitem radio:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio-hover.png"),
-		url("img/menuitem-radio-hover@2.png"));
-}
-
-menu menuitem radio:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio-insensitive.png"),
-		url("img/menuitem-radio-insensitive@2.png"));
-}
-
-menu menuitem radio:checked,
-menu menuitem radio:active {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio-checked.png"),
-		url("img/menuitem-radio-checked@2.png"));
-}
-
-menu menuitem radio:checked:hover,
-menu menuitem radio:active:hover {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio-checked-hover.png"),
-		url("img/menuitem-radio-checked-hover@2.png"));
-}
-
-menu menuitem radio:checked:disabled,
-menu menuitem radio:active:disabled {
-	-gtk-icon-source: -gtk-scaled(url("img/menuitem-radio-checked-insensitive.png"),
-		url("img/menuitem-radio-checked-insensitive@2.png"));
-}
-
-/*********
- * Panes *
- *********/
-
-paned.horizontal > separator {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-image: -gtk-scaled(url("img/pane-separator-grip-horz.png"),
-		url("img/pane-separator-grip-horz@2.png"));
-	-gtk-icon-source:none;
-}
-
-paned.vertical > separator {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-image: -gtk-scaled(url("img/pane-separator-grip-vert.png"),
-		url("img/pane-separator-grip-vert@2.png"));
-	-gtk-icon-source:none;
-}
+/********************************************
+ * End of configuration for color variants. *
+ ********************************************/
 
 /***********
- * Borders *
+ * general *
  ***********/
 
-/* generic element borders */
-entry,
-combobox entry,
-combobox entry button,
-button:active,
-trough,
-trough highlight,
-switch,
-/* generic button borders */
-button,
-button.flat:active,
-button.flat:hover,
-.menu-button:active,
-.titlebar button.titlebutton:hover,
-toolbar.primary-toolbar button:checked,
-toolbar.primary-toolbar button.raised,
-toolbar.primary-toolbar .linked button.raised,
-toolbar.primary-toolbar .linked button.raised:hover,
-toolbar.primary-toolbar .linked button.raised:focus,
-toolbar.primary-toolbar .linked button.raised:focus:hover,
-toolbar.primary-toolbar .linked button.raised:focus:hover:active,
-toolbar.primary-toolbar .raised.linked button,
-toolbar.primary-toolbar .raised.linked button:hover,
-toolbar.primary-toolbar .raised.linked button:focus,
-toolbar.primary-toolbar .raised.linked button:focus:hover,
-toolbar.primary-toolbar .raised.linked button:focus:hover:active,
-toolbar.primary-toolbar .raised.raised button:disabled,
-toolbar.primary-toolbar combobox button,
-/* primary toolbar - generic element borders */
-toolbar.primary-toolbar entry,
-toolbar.primary-toolbar combobox entry,
-toolbar.primary-toolbar combobox button,
-toolbar.primary-toolbar button:active,
-toolbar.primary-toolbar button.raised:active,
-toolbar.primary-toolbar .raised button:active,
-toolbar.primary-toolbar button.raised:disabled,
-toolbar.primary-toolbar .raised button:disabled,
-toolbar.primary-toolbar switch,
-toolbar.primary-toolbar switch:disabled,
-toolbar.primary-toolbar combobox button:active,
-toolbar.primary-toolbar combobox button:disabled,
-/* primary toolbar - hover button borders */
-toolbar.primary-toolbar button:hover {
-	border-image: url("img/border.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+@define-color insensitive_bg_color @theme_bg_color;
+@define-color insensitive_fg_color shade(@core_color_b, 0.70);
+@define-color insensitive_text_shadow_color @theme_base_color;
 
-toolbar.primary-toolbar entry,
-toolbar.primary-toolbar combobox entry {
-	border-width: 1px 2px 2px;
-}
+@define-color internal_element_color @theme_text_color;
+@define-color internal_element_hover_color @theme_text_color;
+@define-color internal_element_insensitive_color @insensitive_fg_color;
 
-toolbar.primary-toolbar entry:focus,
-toolbar.primary-toolbar combobox entry:focus {
-	border-width: 1px 2px 2px;
-}
+/* border */
 
-/* Linked single button */
-.linked entry:only-child,
-.linked button:only-child,
-.linked button:active:only-child,
-.linked button:active:hover:only-child,
-.linked button:focus:only-child,
-.linked button:focus:active:only-child,
-.linked button:disabled:only-child,
-/* Middle button (vertical) */
-.linked.vertical entry,
-.linked.vertical button,
-.linked.vertical button:active,
-.linked.vertical button:active:hover,
-.linked.vertical button:focus,
-.linked.vertical button:focus:active,
-.linked.vertical button:disabled,
-/* Top button (vertical) */
-.linked.vertical entry:first-child,
-.linked.vertical button:first-child,
-.linked.vertical button:active:first-child,
-.linked.vertical button:active:hover:first-child,
-.linked.vertical button:focus:first-child,
-.linked.vertical button:focus:active:first-child,
-.linked.vertical button:disabled:first-child,
-/* Bottom button (vertical) */
-.linked.vertical entry:last-child,
-.linked.vertical button:last-child,
-.linked.vertical button:active:last-child,
-.linked.vertical button:active:hover:last-child,
-.linked.vertical button:focus:last-child,
-.linked.vertical button:focus:active:last-child,
-.linked.vertical button:disabled:last-child,
-/* Linked single button (vertical) */
-.linked.vertical entry:only-child,
-.linked.vertical button:only-child,
-.linked.vertical button:active:only-child,
-.linked.vertical button:active:hover:only-child,
-.linked.vertical button:focus:only-child,
-.linked.vertical button:focus:active:only-child,
-.linked.vertical button:disabled:only-child,
-/* Linked buttons on primary toolbars */
-/* Middle button */
-toolbar.primary-toolbar button.raised.linked,
-toolbar.primary-toolbar button.raised.linked:active,
-toolbar.primary-toolbar button.raised.linked:focus,
-toolbar.primary-toolbar button.raised.linked:focus:active,
-toolbar.primary-toolbar button.raised.linked:disabled,
-toolbar.primary-toolbar .raised.linked button,
-toolbar.primary-toolbar .raised.linked button:active,
-toolbar.primary-toolbar .raised.linked button:focus,
-toolbar.primary-toolbar .raised.linked button:focus:active,
-toolbar.primary-toolbar .raised.linked button:disabled,
-toolbar.inline-toolbar button,
-toolbar.inline-toolbar button:active,
-toolbar.inline-toolbar button:focus,
-toolbar.inline-toolbar button:focus:active,
-toolbar.inline-toolbar button:disabled,
-toolbar.inline-toolbar toolbutton button,
-toolbar.inline-toolbar toolbutton button:active,
-toolbar.inline-toolbar toolbutton button:focus,
-toolbar.inline-toolbar toolbutton button:focus:active,
-toolbar.inline-toolbar toolbutton button:disabled,
-/* Leftmost button */
-toolbar.primary-toolbar button.raised.linked:first-child,
-toolbar.primary-toolbar button.raised.linked:active:first-child,
-toolbar.primary-toolbar button.raised.linked:focus:first-child,
-toolbar.primary-toolbar button.raised.linked:focus:active:first-child,
-toolbar.primary-toolbar button.raised.linked:disabled:first-child,
-toolbar.primary-toolbar .raised.linked button:first-child,
-toolbar.primary-toolbar .raised.linked button:active:first-child,
-toolbar.primary-toolbar .raised.linked button:focus:first-child,
-toolbar.primary-toolbar .raised.linked button:focus:active:first-child,
-toolbar.primary-toolbar .raised.linked button:disabled:first-child,
-toolbar.inline-toolbar button:first-child,
-toolbar.inline-toolbar button:active:first-child,
-toolbar.inline-toolbar button:focus:first-child,
-toolbar.inline-toolbar button:focus:active:first-child,
-toolbar.inline-toolbar button:disabled:first-child,
-toolbar.inline-toolbar toolbutton button :first-child,
-toolbar.inline-toolbar toolbutton button :first-child:active,
-toolbar.inline-toolbar toolbutton button :first-child:focus,
-toolbar.inline-toolbar toolbutton button :first-child:focus:active,
-toolbar.inline-toolbar toolbutton button :first-child:disabled,
-/* Rightmost button */
-toolbar.primary-toolbar button.raised.linked:last-child,
-toolbar.primary-toolbar button.raised.linked:active:last-child,
-toolbar.primary-toolbar button.raised.linked:focus:last-child,
-toolbar.primary-toolbar button.raised.linked:focus:active:last-child,
-toolbar.primary-toolbar button.raised.linked:disabled:last-child,
-toolbar.primary-toolbar .raised.linked button:last-child,
-toolbar.primary-toolbar .raised.linked button:active:last-child,
-toolbar.primary-toolbar .raised.linked button:focus:last-child,
-toolbar.primary-toolbar .raised.linked button:focus:active:last-child,
-toolbar.primary-toolbar .raised.linked button:disabled:last-child,
-toolbar.inline-toolbar button:last-child,
-toolbar.inline-toolbar button:active:last-child,
-toolbar.inline-toolbar button:focus:last-child,
-toolbar.inline-toolbar button:focus:active:last-child,
-toolbar.inline-toolbar button:disabled:last-child,
-toolbar.inline-toolbar toolbutton button :last-child,
-toolbar.inline-toolbar toolbutton button :last-child:active,
-toolbar.inline-toolbar toolbutton button :last-child:focus,
-toolbar.inline-toolbar toolbutton button :last-child:focus:active,
-toolbar.inline-toolbar toolbutton button :last-child:disabled,
-/* Single button */
-toolbar.inline-toolbar button:only-child,
-toolbar.inline-toolbar button:active:only-child,
-toolbar.inline-toolbar button:focus:only-child,
-toolbar.inline-toolbar button:focus:active:only-child,
-toolbar.inline-toolbar button:disabled:only-child,
-toolbar.inline-toolbar toolbutton button :only-child,
-toolbar.inline-toolbar toolbutton button :only-child:active,
-toolbar.inline-toolbar toolbutton button :only-child:focus,
-toolbar.inline-toolbar toolbutton button :only-child:focus:active,
-toolbar.inline-toolbar toolbutton button :only-child:disabled {
-	border-image: url("img/border-inline-button.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+@define-color border_color shade(@core_color_b, 0.6);
+@define-color focus_border_color mix(#acacac, shade(@core_color_a, 0.75), 0.54);
+@define-color insensitive_border_color shade(@core_color_b, 0.73);
 
-/* generic insensitive element borders */
-switch:disabled,
-combobox entry:disabled,
-combobox button:disabled,
-entry:disabled,
-button:disabled,
-trough row {
-	border-image: url("img/border-insensitive.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+/**********
+ * button *
+ **********/
 
-menuitem button.flat,
-button.flat,
-button.flat:disabled,
-list row button,
-list row button:hover {
-    border-image: none;
-    background-image: none;
-}
+@define-color button_gradient_a shade(@core_color_b, 1.07);
+@define-color button_gradient_b shade(@core_color_b, 1.06);
+@define-color button_gradient_c shade(@core_color_b, 1.04);
+@define-color button_gradient_d shade(@core_color_b, 0.98);
 
-/* focused element borders */
-entry:focus,
-combobox entry:focus,
-button.flat:focus:active,
-button:focus:active,
-button.default:active,
-/* focused button borders */
-button.flat:focus,
-button.default,
-toolbar.primary-toolbar entry:focus,
-toolbar.primary-toolbar button:active:focus,
-toolbar.primary-toolbar button:focus:hover,
-toolbar.primary-toolbar combobox entry:focus,
-toolbar.primary-toolbar combobox button:focus,
-toolbar.primary-toolbar button.raised:focus:active,
-toolbar.primary-toolbar .raised button:focus:active,
-toolbar.primary-toolbar button.raised.default:active,
-toolbar.primary-toolbar .raised button.default:active,
-toolbar.primary-toolbar combobox button:active:focus,
-toolbar.primary-toolbar button.raised:focus,
-toolbar.primary-toolbar button.raised.default,
-toolbar.primary-toolbar .raised button:focus,
-toolbar.primary-toolbar .raised button.default,
-toolbar.primary-toolbar combobox button:focus {
-	border-image: url("img/border-focused.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+/* hover */
 
-/* focused primary toolbar button borders */
-toolbar.primary-toolbar button:focus {
-	border-image: url("img/border-focused-ptb.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+@define-color button_hover_gradient_a @theme_base_color;
+@define-color button_hover_gradient_b shade(@core_color_b, 1.05);
+@define-color button_hover_gradient_c @core_color_b;
 
-/* focused switch trough borders */
-switch:active {
-	border-image: url("img/border-focused-switch.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+/* active */
 
-.linked button:disabled:only-child {
-	border-image: url("img/border-insensitive.svg") 3 3 4 3 / 3px 3px 4px 3px repeat;
-	border-width: 1px 1px 2px 1px;
-	border-style: solid;
-	border-color: transparent;
-}
+@define-color button_active_text_color @theme_fg_color;
+
+@define-color button_active_gradient_a shade(@core_color_b, 0.85);
+@define-color button_active_gradient_b shade(@core_color_b, 0.90);
+@define-color button_active_gradient_c shade(@core_color_b, 0.91);
+@define-color button_active_gradient_d shade(@core_color_b, 0.86);
+@define-color button_active_gradient_e shade(@core_color_b, 0.84);
+@define-color button_active_gradient_f shade(@core_color_b, 0.80);
+
+/* insensitive */
+
+@define-color button_insensitive_inner_border_color shade(@core_color_b, 1.05);
+
+@define-color button_insensitive_gradient_a shade(@core_color_b, 1.04);
+@define-color button_insensitive_gradient_b shade(@core_color_b, 1.01);
+@define-color button_insensitive_gradient_c shade(@core_color_b, 0.99);
+@define-color button_insensitive_gradient_d shade(@core_color_b, 0.96);
+
+/* active insensitive */
+
+@define-color button_active_insensitive_gradient_a shade(@core_color_b, 0.98);
+@define-color button_active_insensitive_gradient_b shade(@core_color_b, 1.02);
+@define-color button_active_insensitive_gradient_c shade(@core_color_b, 1.03);
+@define-color button_active_insensitive_gradient_d shade(@core_color_b, 1.01);
+@define-color button_active_insensitive_gradient_e shade(@core_color_b, 0.99);
+@define-color button_active_insensitive_gradient_f shade(@core_color_b, 0.96);
+
+/* primary toolbar focus */
+
+@define-color pt_button_focus_gradient_a mix(#fafafa, shade(@core_color_a, 1.09), 0.3);
+@define-color pt_button_focus_gradient_b mix(#ededed, shade(@core_color_a, 1.05), 0.3);
+@define-color pt_button_focus_gradient_c mix(#e8e8e8, shade(@core_color_a, 1.01), 0.25);
+@define-color pt_button_focus_gradient_d mix(#e8e8e8, shade(@core_color_a, 0.96), 0.3);
+
+/* primary toolbar focus hover */
+
+@define-color pt_button_focus_hover_gradient_a mix(#fcfcfc, shade(@core_color_a, 1.09), 0.15);
+@define-color pt_button_focus_hover_gradient_b mix(#fcfcfc, shade(@core_color_a, 1.05), 0.15);
+@define-color pt_button_focus_hover_gradient_c mix(#fcfcfc, shade(@core_color_a, 1.01), 0.2);
+@define-color pt_button_focus_hover_gradient_d mix(#e8e8e8, shade(@core_color_a, 0.96), 0.2);
+
+/*****************
+ * color chooser *
+ *****************/
+
+@define-color color_swatch_border_color @border_color;
+@define-color color_swatch_hover_border_color @menubar_menuitem_hover_border_color;
+
+@define-color color_active_badge_light_border_color @theme_fg_color;
+@define-color color_active_badge_light_color @color_active_badge_light_border_color;
+
+@define-color color_active_badge_dark_border_color @theme_base_color;
+@define-color color_active_badge_dark_color @color_active_badge_light_border_color;
+
+/*****************
+ * column-header *
+ *****************/
+
+@define-color column_header_border_top_color @theme_base_color;
+@define-color column_header_border_right_color shade(@core_color_b, 0.82);
+@define-color column_header_border_bottom_color shade(@core_color_b, 0.70);
+@define-color column_header_border_left_color @column_header_border_top_color;
+
+@define-color column_header_button_gradient_a shade(@core_color_b, 1.05);
+@define-color column_header_button_gradient_b shade(@core_color_b, 1.02);
+@define-color column_header_button_gradient_c @core_color_b;
+@define-color column_header_button_gradient_d shade(@core_color_b, 0.96);
+
+/*********
+ * entry *
+ *********/
+
+@define-color entry_text_color @theme_text_color;
+
+@define-color entry_inner_border_color shade(@core_color_b, 0.96);
+@define-color entry_bg_color @theme_base_color;
+
+/* insensitive */
+
+@define-color entry_insensitive_inner_border_color shade(@core_color_b, 0.97);
+@define-color entry_insensitive_bg_color @insensitive_bg_color;
+
+/************
+ * expander *
+ ************/
+
+@define-color expander_row_selected_border_color mix(#acacac, shade(@core_color_a, 0.75), 0.54);
+
+/*****************
+ * fallback mode *
+ *****************/
+
+@define-color os_chrome_bg_color @theme_bg_color;
+@define-color os_chrome_fg_color @theme_fg_color;
+
+/* gnome-panel */
+
+@define-color applet_frame_bg_color shade(@core_color_b, 0.89);
+@define-color pager_bg_color shade(@core_color_b, 0.97);
+
+/*******************************
+ * info/question/error/warning *
+ *******************************/
+
+@define-color info_bg_color @theme_tooltip_bg_color;
+@define-color info_fg_color @theme_fg_color;
+
+@define-color question_bg_color mix(#727272, shade(@core_color_a, 0.90), 0.95);
+@define-color question_fg_color @theme_base_color;
+
+@define-color error_bg_color mix(#ababab, shade(@error_color, 0.77), 0.78);
+@define-color error_fg_color @theme_base_color;
+
+@define-color warning_fg_color @theme_fg_color;
+
+/********
+ * menu *
+ ********/
+
+@define-color menu_bg_color @theme_base_color;
+@define-color menu_fg_color @theme_fg_color;
+
+/* Example: submenu arrow. */
+@define-color menu_controls_color @theme_fg_color;
+
+@define-color menu_border_color shade(@core_color_b, 0.72);
+@define-color menu_separator_color @menu_border_color;
+
+/***********
+ * menubar *
+ ***********/
+
+@define-color menubar_gradient_a shade(@core_color_b, 0.99);
+@define-color menubar_gradient_b shade(@core_color_b, 0.98);
+@define-color menubar_gradient_c shade(@core_color_b, 0.96);
+
+/* hover */
+
+@define-color menubar_menuitem_hover_color @theme_selected_fg_color;
+@define-color menubar_menuitem_hover_border_color shade(@core_color_a, 0.58);
+
+@define-color menubar_menuitem_hover_gradient_a @core_color_a;
+@define-color menubar_menuitem_hover_gradient_b shade(@core_color_a, 0.95);
+@define-color menubar_menuitem_hover_gradient_c shade(@core_color_a, 0.93);
+@define-color menubar_menuitem_hover_gradient_d shade(@core_color_a, 0.88);
+
+/************
+ * notebook *
+ ************/
+
+@define-color notebook_bg_color shade(@core_color_b, 1.02);
+
+@define-color notebook_tab_inner_border_color shade(@core_color_b, 1.04);
+
+@define-color notebook_tab_gradient_a shade(@core_color_b, 0.97);
+@define-color notebook_tab_gradient_b shade(@core_color_b, 0.92);
+@define-color notebook_tab_gradient_c shade(@core_color_b, 0.90);
+@define-color notebook_tab_gradient_d shade(@core_color_b, 0.86);
+
+/* active tab */
+
+@define-color notebook_active_tab_border @menubar_menuitem_hover_border_color;
+
+@define-color notebook_active_tab_strip_gradient_a shade(@core_color_a, 1.05);
+@define-color notebook_active_tab_strip_gradient_b shade(@core_color_a, 0.94);
+@define-color notebook_active_tab_strip_border_bottom_color mix(#727272, shade(@core_color_a, 0.84), 0.65);
+@define-color notebook_active_tab_gradient_a shade(@core_color_b, 1.07);
+@define-color notebook_active_tab_gradient_b @notebook_bg_color;
+
+/*******
+ * osd *
+ *******/
+
+@define-color osd_bg_color @theme_tooltip_bg_color;
+@define-color osd_fg_color @theme_tooltip_fg_color;
+@define-color osd_border_color @theme_tooltip_border_color;
+
+/***************
+ * progressbar *
+ ***************/
+
+@define-color progressbar_border_color mix(#6a6a6a, shade(@core_color_a, 0.75), 0.80);
+@define-color progressbar_pattern_color @progressbar_border_color;
+
+@define-color progressbar_bg_color @core_color_a;
+
+@define-color progressbar_gradient_a @progressbar_bg_color;
+@define-color progressbar_gradient_b @menubar_menuitem_hover_gradient_b;
+@define-color progressbar_gradient_c @menubar_menuitem_hover_gradient_c;
+@define-color progressbar_gradient_d @menubar_menuitem_hover_gradient_d;
+
+/*********
+ * scale *
+ *********/
+
+@define-color scale_mark_color @border_color;
+@define-color scale_progressbar_bg_color @scale_trough_highlight_gradient_b;
+
+@define-color scale_trough_border_color shade(@core_color_b, 0.56);
+@define-color scale_trough_bg_color shade(@core_color_b, 0.90);
+
+/* trough highlight */
+
+@define-color scale_trough_highlight_border_color mix(#2b2b2b, shade(@core_color_a, 0.75), 0.80);
+@define-color scale_trough_highlight_bg_color shade(@core_color_a, 0.92);
+
+/* trough insensitive */
+
+@define-color scale_trough_insensitive_border_color @insensitive_border_color;
+@define-color scale_trough_insensitive_bg_color shade(@core_color_b, 0.97);
+
+/* trough highlight insensitive */
+
+@define-color scale_trough_highlight_insensitive_border_color mix(#6a6a6a, shade(@core_color_a, 0.88), 0.90);
+@define-color scale_trough_highlight_insensitive_bg_color shade(@core_color_a, 1.20);
+
+/*************
+ * scrollbar *
+ *************/
+
+/* junction */
+
+@define-color scrollbars_junction_bg_color @theme_bg_color;
+
+/* trough */
+
+@define-color scrollbar_trough_border_color shade(@core_color_b, 0.6);
+
+@define-color scrollbar_trough_gradient_a shade(@core_color_b, 0.86);
+@define-color scrollbar_trough_gradient_b shade(@core_color_b, 0.90);
+
+/* slider */
+
+@define-color scrollbar_slider_bg_color shade(@core_color_a, 0.99);
+
+@define-color scrollbar_slider_gradient_a @scrollbar_slider_bg_color;
+@define-color scrollbar_slider_gradient_b shade(@core_color_a, 0.96);
+@define-color scrollbar_slider_gradient_c shade(@core_color_a, 0.92);
+@define-color scrollbar_slider_gradient_d shade(@core_color_a, 0.88);
+
+@define-color scrollbar_slider_border_color mix(#000000, shade(@core_color_a, 0.72), 0.95);
+
+@define-color scrollbar_slider_inner_border_color shade(@core_color_a, 1.04);
+
+/* slider hover */
+
+@define-color scrollbar_slider_hover_bg_color shade(@core_color_a, 1.03);
+
+@define-color scrollbar_slider_hover_gradient_a @scrollbar_slider_hover_bg_color;
+@define-color scrollbar_slider_hover_gradient_b shade(@core_color_a, 0.99);
+@define-color scrollbar_slider_hover_gradient_c shade(@core_color_a, 0.96);
+@define-color scrollbar_slider_hover_gradient_d shade(@core_color_a, 0.91);
+
+/* button */
+
+@define-color scrollbar_button_color @theme_fg_color;
+@define-color scrollbar_button_insensitive_color @internal_element_insensitive_color;
+@define-color scrollbar_button_border_color shade(@core_color_b, 0.56);
+
+@define-color scrollbar_button_gradient_a shade(@core_color_b, 1.07);
+@define-color scrollbar_button_gradient_b shade(@core_color_b, 1.02);
+@define-color scrollbar_button_gradient_c shade(@core_color_b, 0.99);
+@define-color scrollbar_button_gradient_d shade(@core_color_b, 0.95);
+
+/* button hover */
+
+@define-color scrollbar_button_hover_gradient_a shade(@core_color_b, 1.07);
+@define-color scrollbar_button_hover_gradient_b shade(@core_color_b, 1.05);
+@define-color scrollbar_button_hover_gradient_c shade(@core_color_b, 1.02);
+@define-color scrollbar_button_hover_gradient_d shade(@core_color_b, 0.97);
+
+/* button active */
+
+@define-color scrollbar_button_active_gradient_a shade(@core_color_b, 0.95);
+@define-color scrollbar_button_active_gradient_b shade(@core_color_b, 0.92);
+@define-color scrollbar_button_active_gradient_c shade(@core_color_b, 0.89);
+@define-color scrollbar_button_active_gradient_d shade(@core_color_b, 0.85);
+
+/***********
+ * sidebar *
+ ***********/
+
+@define-color sidebar_bg_color @theme_base_color;
+@define-color gtkassistant_sidebar_border_color @border_color;
+
+/**************
+ * spinbutton *
+ **************/
+
+@define-color spinbutton_border_color @border_color;
+
+/**********
+ * switch *
+ **********/
+
+@define-color switch_color shade(@core_color_b, 0.45);
+
+@define-color switch_slider_border_color @progressbar_border_color;
+
+@define-color switch_slider_bg_color @scrollbar_slider_bg_color;
+
+@define-color switch_slider_gradient_a @switch_slider_bg_color;
+@define-color switch_slider_gradient_b @scrollbar_slider_gradient_b;
+@define-color switch_slider_gradient_c @scrollbar_slider_gradient_c;
+@define-color switch_slider_gradient_d @scrollbar_slider_gradient_d;
+
+/* active */
+
+@define-color switch_trough_active_color @theme_base_color;
+
+@define-color switch_trough_active_gradient_a @menubar_menuitem_hover_border_color;
+@define-color switch_trough_active_gradient_b shade(@core_color_a, 1.12);
+
+/* insensitive */
+
+@define-color switch_slider_insensitive_bg_color @button_insensitive_gradient_a;
+
+@define-color switch_slider_insensitive_gradient_a @switch_slider_insensitive_bg_color;
+@define-color switch_slider_insensitive_gradient_b @button_insensitive_gradient_b;
+@define-color switch_slider_insensitive_gradient_c @button_insensitive_gradient_c;
+@define-color switch_slider_insensitive_gradient_d @button_insensitive_gradient_d;
+
+/***********
+ * toolbar *
+ ***********/
+
+@define-color toolbar_border_top_color shade(@core_color_b, 0.82);
+@define-color toolbar_inner_border_color @theme_base_color;
+@define-color toolbar_border_bottom_color @toolbar_border_top_color;
+
+@define-color toolbar_gradient_a shade(@core_color_b, 1.04);
+@define-color toolbar_gradient_b shade(@core_color_b, 1.01);
+@define-color toolbar_gradient_c @core_color_b;
+@define-color toolbar_gradient_d shade(@core_color_b, 0.97);
+
+/***********
+ * tooltip *
+ ***********/
+
+@define-color theme_tooltip_border_color #86abd9;
+
+/**********
+ * trough *
+ **********/
+
+@define-color trough_gradient_a shade(@core_color_b, 0.81);
+@define-color trough_gradient_b shade(@core_color_b, 0.90);
+
+/***/
+@define-color overshoot_bg_color alpha (@theme_selected_bg_color, 0.15);
+@define-color overshoot_backdrop_bg_color @theme_selected_bg_color;
+
+/***********
+ * imports *
+ ***********/
+
+@import url("gtk-widgets-img.css");
+@import url("gtk-widgets.css");
+@import url("applications.css");
