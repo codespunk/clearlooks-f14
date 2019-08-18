@@ -16,7 +16,7 @@ Note that it can be difficult to identify what exactly has changed from my commi
 
 ---
 
-**Screenshots***
+**Screenshots**
 
 <img src="https://raw.githubusercontent.com/codespunk/clearlooks-f14/master/doc/gtk3-widget-factory_page1.png" />
 <img src="https://raw.githubusercontent.com/codespunk/clearlooks-f14/master/doc/gtk3-widget-factory_page2.png" />
