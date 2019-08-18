@@ -397,6 +397,12 @@ statusbar frame > border
    border: none;
 }
 
+statusbar.horizontal {
+box-shadow:inset 0px 4px 0px 0px #fcfcfc,
+           inset 0px 3px 0px 0px #c4c2bf,
+           inset 0px 2px 0px 0px @theme_bg_color;
+}
+
 statusbar frame > button.flat {
    padding: 0px;
 }
